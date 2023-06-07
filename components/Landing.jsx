@@ -51,8 +51,8 @@ const Landing = () => {
         <div>Loading...</div>
       ) : (
         <div className="text-center">
-          <h1 className="text-5xl font-bold mb-4 text-zinc-900 fonts-mono  p-3">This is Nutorla</h1>
-          <Link href= '/Customize'><button className="mt-4 bg-zinc-900 border-2 border-black  text-white font-bold py-2 px-5 rounded-3xl fonts-mono">
+          <h1 className="text-[50px] font-bold mb-4 text-zinc-900 font-eric  p-3">This is Nutorla</h1>
+          <Link href= '/Customize'><button className="mt-4 bg-zinc-900 border-2 border-black  text-white font-bold py-2 px-6 rounded-3xl font-eric">
             Shop Now
           </button></Link>
         </div>

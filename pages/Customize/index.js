@@ -20,6 +20,7 @@ const index = ({products, bannerData , productshot,productspants,productsjump, p
 
   return (
     <div >
+    
      <div className='bg-slate-50'>
       <div className='bg-zinc-900 flex flex-row justify-between text-white font-semibold text-[25px]    '>
         <h2 className='font-sans'>Product</h2>

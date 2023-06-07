@@ -14,22 +14,8 @@ import ImageCard from '../components/ImageCard'
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
 const index = ({products, bannerData , productshot,productspants,productsjump, productsblouses,productsskirts, productstwopieces,productsdresses,productsblazers} ) => {
-  const categories = [
-    { name: 'Pants', link: '/categories/' },
-    { name: 'Jumpsuits', link: '/categories/' },
-    { name: 'Blouses', link: '/categories/' },
-    { name: 'Skirts', link: '/categories/' },
-    { name: 'Two pieces', link: '/categories/' },
-    { name: 'Dresses', link: '/categories/' },
-    { name: 'Blazers', link: '/categories/' },
-  ];
-  const firstCategory = categories[0];
-  const secondCategory = categories[1];
-  const thirdCategory = categories[2];
-  const fourthCategory = categories[3];
-  const fifthCategory = categories[4];
-  const sixthCategory = categories[5];
-  const seventhCategory = categories[6];
+
+ 
  
 
 

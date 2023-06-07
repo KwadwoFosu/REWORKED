@@ -14,11 +14,11 @@ const Sidebar2 = () => {
   ];
 
   return (
-    <div className="flex items-center justify-center bg-zinc-600 invisible half:visible">
-      <div className="flex space-x-4 p-2">
+    <div className="flex items-center justify-center  bg-zinc-600 invisible half:visible ">
+      <div className="flex p-2 half:space-x-4">
         {categories.map((category) => (
           <Link key={category.name} href={{ pathname: category.link, query: { category: category.name } }}>
-            <p className="text-lg text-white hover:text-gray-900 cursor-pointer">
+            <p className="text-sm text-white  hover:text-gray-900 cursor-pointer half:text-lg">
               {category.name}
             </p>
           </Link>

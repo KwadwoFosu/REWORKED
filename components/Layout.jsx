@@ -3,11 +3,12 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Payment from './Payment'
+import Sidebar2 from './Sidebar2'
 
 
 const Layout = ({children}) => {
   return (
-    <div className=  'p-2 bg-zinc-200 '>
+    <div className=  ' bg-zinc-200 w-full'>
     
         <Head >
             <title >
@@ -15,9 +16,11 @@ const Layout = ({children}) => {
             </title>
         </Head>
         <header >
-            <Navbar />
+            <Navbar />   
         </header>
+        
         <main className='main-container'>
+          
             {children}
         </main>
         <footer>

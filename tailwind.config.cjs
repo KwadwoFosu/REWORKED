@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      eric: ["Playfair Display","serif"]
+    },
     screens: {
       
 

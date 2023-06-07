@@ -26,7 +26,8 @@ const Navbar = () => {
     setIsSearchVisible(!isSearchVisible);
   }
   return (
-    <div className={'items-center p-3 rounded-lg flex-col'}>
+
+    <div className='items-center rounded-lg flex-col'>
       <div className='bg-zinc-900 flex items-center justify-between p-3  text-white'>
         <p className='flex items-center'>
           <TfiMenu className='mx-2 half:hidden' onClick={handleButtonClick} />
@@ -67,8 +68,7 @@ const Navbar = () => {
         {isSearchVisible && <SearchInput />}
         
       </div>
-      <div><Sidebar2/></div>
-      
+      <Sidebar2 />
     </div>
   );
 };
