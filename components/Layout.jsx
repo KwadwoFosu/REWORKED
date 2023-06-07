@@ -7,7 +7,7 @@ import Payment from './Payment'
 
 const Layout = ({children}) => {
   return (
-    <div className=  'p-2 bg-zinc-200 '>
+    <div className=  ' bg-zinc-200 '>
     
         <Head >
             <title >
@@ -17,7 +17,7 @@ const Layout = ({children}) => {
         <header >
             <Navbar />
         </header>
-        <main className='main-container'>
+        <main className=''>
             {children}
         </main>
         <footer>
