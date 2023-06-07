@@ -35,7 +35,7 @@ const index = ({products, bannerData , productshot,productspants,productsjump, p
 
   return (
     <div >
-      {/*< Landing />*/}
+      < Landing />
       <div className='bg-slate-50 mt-[70px]  '>
       <div className='text-white font-semibold text-[25px] justify-center bg-zinc-900  '>
         <h2 className='font-sans '>GALLERY</h2>
