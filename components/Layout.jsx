@@ -3,12 +3,12 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Payment from './Payment'
-import Sidebar2 from './Sidebar2'
+
 
 
 const Layout = ({children}) => {
   return (
-    <div className=  ' bg-zinc-200 w-full'>
+    <div className=  ' bg-zinc-200 '>
     
         <Head >
             <title >
