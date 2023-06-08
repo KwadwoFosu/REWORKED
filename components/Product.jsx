@@ -26,9 +26,7 @@ const Product = ({product  }) => {
        
         <div className="flex items-center justify-between mt-4">
           <span className="text-gray-800 font-bold">GHC {product.price}</span>
-          <button onClick= {() => onAdd (product, qty)} className="bg-zinc-900 hover:bg-zinc-600 text-white font-bold py-2 px-4 rounded-full">
-            Add to Cart
-          </button>
+          
         </div>
       </div>
     </div>
