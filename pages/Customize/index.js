@@ -10,17 +10,15 @@ import { useRouter } from 'next/router'
 import Landing from '../../components/Landing'
 import Sidebar2 from '../../components/Sidebar2'
 import ImageCard from '../../components/ImageCard'
+import Filter from '../../components/Filter'
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
 const index = ({products, bannerData , productshot,productspants,productsjump, productsblouses,productsskirts, productstwopieces,productsdresses,productsblazers} ) => {
-
  
-
-
   return (
     <div >
-    
+      <Filter />
      <div className='bg-slate-50'>
       <div className='bg-zinc-900 flex flex-row justify-between text-white font-semibold text-[25px]    '>
         <h2 className='font-sans'>Product</h2>

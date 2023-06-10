@@ -2,7 +2,7 @@ import React from 'react';
 
 const ImageCard = ({ imageUrl,name }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden w-max ">
+    <div className="bg-white shadow-lg rounded-lg overflow-hidden w-max h-25 ">
       <div className="relative">
         <img
           src={imageUrl}

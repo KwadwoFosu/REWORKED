@@ -35,8 +35,8 @@ const ProductDetails = ({ product, products }) => {
           </div>
         </div>
         <div className='product-detail-desc'>
-          <h1 className='font-eric text-sm half:text-lg'>{name}</h1>
-          <h4>Details</h4>
+          <h1 className='text-[20px] font-bold half:text-[50px]'>{name}</h1>
+          <h4 className='font-semibold text-lg'>Details</h4>
           <p>{description}</p>
           <p className='price'>GHC {price}</p>
           <div></div>
