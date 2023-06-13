@@ -66,7 +66,7 @@ const Filter = () => {
     <div>
       <div className="flex flex-col half:flex-row justify-between items-center px-3 py-2 bg-slate-50">
         {/* Category filter */}
-        <div className="w-1/4">
+        <div className="w-1/2 half:w-1/4">
           <label htmlFor="category" className="font-semibold">
             Price:
           </label>
@@ -85,7 +85,7 @@ const Filter = () => {
           Apply Filter
         </button>
         </div>
-        <div className="w-1/4">
+        <div className="w-1/2 half:w-1/4">
           <label htmlFor="category" className="font-semibold">
             Color:
           </label>
@@ -106,7 +106,7 @@ const Filter = () => {
         </div>
 
       
-        <div className="w-1/4">
+        <div className="w-1/2 half:w-1/4">
           <label htmlFor="category" className="font-semibold">
             Size:
           </label>

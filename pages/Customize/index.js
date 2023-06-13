@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import { Herobanner, Product,Sidebar } from '../../components/index'
 import { client } from '../../lib/client'
 import { BsTelephoneInbound,BsFillArrowRightCircleFill } from 'react-icons/bs'
@@ -11,20 +12,31 @@ import Landing from '../../components/Landing'
 import Sidebar2 from '../../components/Sidebar2'
 import ImageCard from '../../components/ImageCard'
 import Filter from '../../components/Filter'
+import { BiFilterAlt } from 'react-icons/bi'
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
-const index = ({products, bannerData , productshot,productspants,productsjump, productsblouses,productsskirts, productstwopieces,productsdresses,productsblazers} ) => {
- 
+const index = ({products} ) => {
+  const [showFilter, setShowFilter] = useState(false);
+  const handleClick = () => {
+    setShowFilter(!showFilter);
+  };
+
+  const handleClose = () => {
+    setShowFilter(false);
+  };
   return (
     <div >
-      <Filter />
+        
      <div className='bg-slate-50'>
       <div className='bg-zinc-900 flex flex-row justify-between text-white font-semibold text-[25px]    '>
-        <h2 className='font-sans'>Product</h2>
+        <h2 className='font-sans'>Products</h2>
         
       </div>
        <div >
+       <button  className= "font-semibold font-sans  border-orange-700" onClick={handleClick}><BiFilterAlt size={30}/></button>
+
+        {showFilter && <Filter onClose={handleClose} />}
          <div className='products-container mx-3 justify-center'>
           {products.map((product) => <Product  key =
           {product._id} product = {product}/>)}

@@ -8,7 +8,7 @@ import Payment from './Payment'
 
 const Layout = ({children}) => {
   return (
-    <div className=  ' bg-zinc-200 '>
+    <div className=  ' bg-white '>
     
         <Head >
             <title >

@@ -29,14 +29,14 @@ const LoginMenu = () => {
             <>
               <a
                 href="/api/auth/login"
-                className="block px-4 py-1 text-sm text-gray-700 hover:bg-blue-200 hover:text-gray-900"
+                className="block px-4 py-1 text-sm text-gray-700 hover:bg-orange-200 hover:text-gray-900"
                 role="menuitem"
               >
                 Login
               </a>
               <a
                 href="/api/auth/logout"
-                className="block px-4 py-1 text-sm text-gray-700 hover:bg-blue-200 hover:text-gray-900"
+                className="block px-4 py-1 text-sm text-gray-700 hover:bg-orange-200 hover:text-gray-900"
                 role="menuitem"
               >
                 Logout 

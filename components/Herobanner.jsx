@@ -34,7 +34,7 @@ const Herobanner = ({ herobanner }) => {
   return (
     <div className=' bg-blue-50'>
       <Swiper
-        className='bg-zinc-200'
+        className='bg-white'
         onSwiper={setSwiper}
         onSlideChange={handleSlideChange}
         onAutoplay={handleAutoplayEnd}
