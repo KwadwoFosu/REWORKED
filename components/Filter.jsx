@@ -92,8 +92,8 @@ const Filter = () => {
           <select
             id="price"
             className="block w-full mt-1"
-            value={selectedColor}
-            onChange={handleColorChange}
+            value={selectedCategory}
+            onChange={handleCategoryChange}
           >
             <option value="">All colors</option>
             <option value="Red">Red</option>
@@ -113,8 +113,8 @@ const Filter = () => {
           <select
             id="size"
             className="block w-full mt-1"
-            value={selectedSize}
-            onChange={handleSizeChange}
+            value={selectedCategory}
+            onChange={handleCategoryChange}
           >
             <option value="">All Sizes</option>
             <option value="xx">small</option>
