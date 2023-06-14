@@ -45,7 +45,7 @@ const Navbar = () => {
             NUTORLA
           </Link>
         </p>
-        <div className='invisible w-max half:visible'>
+        <div className='invisible text-zinc-900  half:visible'>
         <SearchInput />
         </div>
         

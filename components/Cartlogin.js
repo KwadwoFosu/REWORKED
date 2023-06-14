@@ -111,8 +111,8 @@ const PaystackHookExample = () => {
         type="button"
         className="cart-heading"
         onClick={() => setShowCart(false)}>
-          <AiOutlineLeft />
-          <span className="heading">Your Cart</span>
+          <AiOutlineLeft className='text-orange-800'/>
+          <span className="heading text-orange-800">Your Cart</span>
           <span className="cart-num-items">({totalQuantities} items)</span>
         </button>
 
@@ -143,13 +143,27 @@ const PaystackHookExample = () => {
                 </div>
                 <div className="flex bottom">
                   <div>
-                  <p className="quantity-desc flex items-center">
+                  {/*<p className="quantity-desc flex items-center">
                     <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec') }>
                     <AiOutlineMinus />
                     </span>
                     <span className="num" onClick="">{item.quantity}</span>
                     <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc') }><AiOutlinePlus /></span>
-                  </p>
+          </p> */} 
+                  <p className="quantity-desc flex items-center">
+         <button className="minus border border-gray-300 rounded-full px-2 py-1 mr-1 focus:outline-none" onClick={() => toggleCartItemQuantity(item._id, 'dec')}>
+    <svg className="w-4 h-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M13 9H7v2h6V9z" clipRule="evenodd" />
+    </svg>
+  </button>
+  <span className="num font-semibold">{item.quantity}</span>
+  <button className="plus border border-gray-300 rounded-full px-2 py-1 ml-1 focus:outline-none" onClick={() => toggleCartItemQuantity(item._id, 'inc')}>
+    <svg className="w-4 h-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M12 13V7h2v6h6v2h-6v6h-2v-6H6v-2h6z" clipRule="evenodd" />
+    </svg>
+  </button>
+</p>
+
                   </div>
                   <button
                     type="button"
