@@ -290,6 +290,12 @@ text-align:left;
  color: #ffff;
 
 }
+.products-heading1{
+  text-align: center;
+  margin: 40px 0px;
+ 
+
+}
 .products-heading h2{
   font-size: 40px;
   font-weight: 800;

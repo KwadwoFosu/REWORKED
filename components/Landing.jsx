@@ -6,8 +6,8 @@ const Landing = () => {
   const [bgIndex, setBgIndex] = useState(0);
   const backgrounds = [
     '/Nutorla.jpg',
-    '/11.jpg',
-    '/Nutorla.jpg',
+    '/13.jpg',
+    
   ];
 
   useEffect(() => {
@@ -41,8 +41,7 @@ const Landing = () => {
 
   const backgroundClass = classNames('bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center border-2', {
     'bg-[url(/Nutorla.jpg)]': bgIndex === 0,
-    'bg-[url(/11.jpg)]': bgIndex === 1,
-    'bg-[url(/13.jpg)]': bgIndex === 2,
+    'bg-[url(/13.jpg)]': bgIndex === 1,
   });
 
   return (
