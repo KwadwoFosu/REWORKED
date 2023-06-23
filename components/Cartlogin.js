@@ -84,17 +84,17 @@ const handleClose = () => {
 // you can call this function anything
 const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
-  
+  clearCart();
+  console.log('closed');
+  const router = useRouter();
+  router.push('/Customize'); 
   console.log(reference);
 };
 
 // you can call this function anything
 const onClose = () => {
   // implementation for  whatever you want to do when the Paystack dialog closed.
-  clearCart();
-  console.log('closed');
-  const router = useRouter();
-  router.push('/Customize'); 
+ 
 
 }
 
