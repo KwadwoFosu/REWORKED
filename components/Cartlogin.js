@@ -91,7 +91,7 @@ const onSuccess = (reference) => {
 const onClose = () => {
   // implementation for  whatever you want to do when the Paystack dialog closed.
   clearCart();
-  console.log('closed');
+
   
   router.push('/Customize'); 
   console.log(reference);
