@@ -7,6 +7,7 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
+import { useRouter} from 'next/router';
 
 
 
@@ -26,7 +27,7 @@ const handleClose = () => {
 }
 
 
-    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove} = useStateContext();
+    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart} = useStateContext();
     // Local Storage
   
      
@@ -83,13 +84,18 @@ const handleClose = () => {
 // you can call this function anything
 const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
+  
   console.log(reference);
 };
 
 // you can call this function anything
 const onClose = () => {
   // implementation for  whatever you want to do when the Paystack dialog closed.
-  console.log('closed')
+  clearCart();
+  console.log('closed');
+  const router = useRouter();
+  router.push('/Customize'); 
+
 }
 
 const PaystackHookExample = () => {

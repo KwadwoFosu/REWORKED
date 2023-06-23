@@ -11,6 +11,13 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
   const [cont, setCont] = useState(false);
+
+
+  const clearCart = () => {
+    setCartItems([]); // Clear the cart items by setting an empty array
+    setTotalPrice(0); // Reset the total price to zero
+    setTotalQuantities(0); // Reset the total quantities to zero
+  };
   
 
   let foundProduct;
@@ -126,7 +133,8 @@ export const StateContext = ({ children }) => {
         setTotalPrice,
         setTotalQuantities ,
         cont,
-        setCont
+        setCont,
+        clearCart
         
       }}
     >
