@@ -136,7 +136,7 @@ export const StateContext = ({ children }) => {
         cont,
         setCont,
         clearCart,
-        cartProduct,
+        
         
       }}
     >
