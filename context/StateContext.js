@@ -45,7 +45,7 @@ export const StateContext = ({ children }) => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const onAdd = (product, quantity,size) => {
+  const onAdd = (product, quantity,size,color) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
     
     setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
@@ -58,6 +58,7 @@ export const StateContext = ({ children }) => {
             ...cartProduct,
             quantity: cartProduct.quantity + quantity,
             size:size,
+            color:color,
           };
         }
         return cartProduct;

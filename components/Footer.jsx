@@ -5,8 +5,8 @@ import { FaSnapchat } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <div className="bg-gray-900 py-4">
-      <div className="container mx-auto flex flex-col half:flex-row justify-between cursor-ponter items-center text-white">
+    <div className="bg-zinc-900 py-4">
+      <div className="container mx-auto flex flex-col half:flex-row justify-between cursor-ponter items-center text-white text-lg">
        <Link href = "/Information"> <div className='block py-2 text-orange-500 hover:text-orange-700 cursor-pointer'>Help & Information</div></Link>
         <Link href ="/Information"><div className='block py-2 text-orange-500 hover:text-orange-700 cursor-pointer'>About Nutorla</div></Link>
         <Link href = "/Information"><div className='block py-2 text-orange-500 hover:text-orange-700 cursor-pointer'>Returns Information</div></Link>

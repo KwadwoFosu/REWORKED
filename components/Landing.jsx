@@ -6,7 +6,8 @@ const Landing = () => {
   const [bgIndex, setBgIndex] = useState(0);
   const backgrounds = [
     '/Nutorla.jpg',
-    '/13.jpg',
+    '/IMG_0143.jpg',
+    '/IMG_0147.jpg',
     
   ];
 
@@ -41,7 +42,8 @@ const Landing = () => {
 
   const backgroundClass = classNames('bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center border-2', {
     'bg-[url(/Nutorla.jpg)]': bgIndex === 0,
-    'bg-[url(/13.jpg)]': bgIndex === 1,
+    'bg-[url(/IMG_0143.jpg)]': bgIndex === 1,
+    'bg-[url(/IMG_0147.jpg)]': bgIndex === 2,
   });
 
   return (
@@ -50,7 +52,7 @@ const Landing = () => {
         <div>Loading...</div>
       ) : (
         <div className="text-center">
-          <h1 className="text-[50px] font-bold mb-4 text-zinc-900 font-eric  p-3">This is Nutorla</h1>
+          <h1 className="text-[80px] font-bold mb-4 text-zinc-900 font-eric p-3 text-slate-800">Nutorla</h1>
           <Link href= '/Customize'><button className="mt-4 bg-zinc-900 border-2 border-black  text-white font-bold py-2 px-6 rounded-3xl font-eric">
             Shop Now
           </button></Link>
