@@ -52,28 +52,28 @@ const Sidebar1 = ({ onClose }) => {
       <div className="p-4 m-4">
         <Link href='/Information'>
       <div
-        className="block py-2 text-blue-500 hover:text-orange-700 cursor-pointer"
+        className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer"
         
       >
         Help & Information
       </div></Link>
       
       <Link href='/Information'><div
-        className="block py-2 text-blue-500 hover:text-orange-700 cursor-pointer"
+        className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer"
         
       >
         About Nutorla
       </div></Link>
       <Link href = "/Information">
       <div
-        className="block py-2 text-blue-500 hover:text-orange-700 cursor-pointer"
+        className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer"
         
       >
         Address
       </div></Link>
       <Link href= "/Information">
       <div
-        className="block py-2 text-blue-500 hover:text-orange-700 cursor-pointer"
+        className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer"
         
       >
         Returns Information

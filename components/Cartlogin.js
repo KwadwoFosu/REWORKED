@@ -27,7 +27,7 @@ const handleClose = () => {
 }
 
 
-    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart} = useStateContext();
+    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,cartProduct} = useStateContext();
     // Local Storage
   
      
@@ -70,7 +70,7 @@ const handleClose = () => {
         {
           display_name:'Cart Items',
           variable_name:'cart_items',
-          value: JSON.stringify(cartItems)
+          value: JSON.stringify(cartProduct)
         },
         {
           display_name: 'Shipping Details',

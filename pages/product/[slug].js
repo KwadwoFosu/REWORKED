@@ -41,7 +41,7 @@ const ProductDetails = ({ product, products }) => {
           <div className='image-container'>
             <img src={urlFor(image && image[index])} alt='a' className='h-75' />
           </div>
-          <div className='small-images-container'>
+          <div className='small-images-container flex-wrap'>
             {image?.map((item, i) => (
               <img
                 alt='a'
