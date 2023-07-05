@@ -101,7 +101,7 @@ const ProductDetails = ({ product, products }) => {
 >
   <option value=''>Select Color</option>
   {colorOptions.map((color) => (
-    <option key={color.hex} value={color.hex}>
+    <option key={color.name} value={color.name}>
       <div className=' flex items-center'>
         <div className='color-name text-sm'>{color.name}
         </div>

@@ -67,7 +67,7 @@ export const StateContext = ({ children }) => {
       setCartItems(updatedCartItems);
     } else {
       product.quantity = quantity;
-      setCartItems([...cartItems, { ...product }]);
+      setCartItems([...cartItems, { ...product,color:color, size:size}]);
     }
 
     toast.success(`${qty} ${product.name} added to the cart.`);
@@ -136,6 +136,8 @@ export const StateContext = ({ children }) => {
         cont,
         setCont,
         clearCart,
+      
+        
         
         
       }}
