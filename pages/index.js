@@ -29,10 +29,10 @@ const index = ({products, bannerData , productshot,productspants,productsjump, p
       </div>*/}
        <div className='products-container mx-3 justify-center p-3'   >
       <div>
-      <ImageCard imageUrl= '/IMG_0173.jpg' name= "Turn Up in These" /></div>
-      <div><ImageCard imageUrl= '/12.jpg' name="Shop The Brand " /></div>
+      <ImageCard imageUrl= '/IMG_0173.jpg' name= "Pants Alesa" /></div>
+      <div><ImageCard imageUrl= '/12.jpg' name="Shop The Look " /></div>
       <div><ImageCard imageUrl= '/13.jpg'  name= "Plus-one Perfection"/></div>
-      <div><ImageCard imageUrl= '/IMG_0258.jpg'  name= "Try These"/></div>
+      <div><ImageCard imageUrl= '/IMG_0258.jpg'  name= "A Girl's Perfect Pick"/></div>
       
       
     

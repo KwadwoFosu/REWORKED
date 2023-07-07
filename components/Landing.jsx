@@ -6,7 +6,6 @@ const Landing = () => {
   const [bgIndex, setBgIndex] = useState(0);
   const backgrounds = [
     '/Nutorla.jpg',
-    '/IMG_0143.jpg',
     '/IMG_0147.jpg',
     
   ];
@@ -14,7 +13,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 9000);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, []);
@@ -40,10 +39,9 @@ const Landing = () => {
     preloadImages();
   }, []);
 
-  const backgroundClass = classNames('bg-cover bg-center bg-no-repeat h-screen flex items-center justify-center border-2', {
+  const backgroundClass = classNames('bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center ', {
     'bg-[url(/Nutorla.jpg)]': bgIndex === 0,
-    'bg-[url(/IMG_0143.jpg)]': bgIndex === 1,
-    'bg-[url(/IMG_0147.jpg)]': bgIndex === 2,
+    'bg-[url(/IMG_0147.jpg)]': bgIndex === 1,
   });
 
   return (
@@ -52,7 +50,7 @@ const Landing = () => {
         <div>Loading...</div>
       ) : (
         <div className="text-center">
-          <h1 className="text-[80px] font-bold mb-4 text-zinc-900 font-eric p-3 text-slate-800">Nutorla</h1>
+          <h1 className="text-[80px] half:text-[150px] font-bold mb-4 text-zinc-900 font-eric p-3  text-slate-800 opacity-70">Nutorla</h1>
           <Link href= '/Customize'><button className="mt-4 bg-zinc-900 border-2 border-black  text-white font-bold py-2 px-6 rounded-3xl font-eric">
             Shop Now
           </button></Link>

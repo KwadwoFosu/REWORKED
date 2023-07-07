@@ -52,7 +52,7 @@ const ProductDetails = ({ product, products }) => {
             ))}
           </div>
         </div>
-        <div className='product-detail-desc'>
+        <div className='product-detail-desc '>
           <h1 className='text-[20px] font-bold half:text-[50px]'>{name}</h1>
           <h4 className='font-semibold text-lg'>Details</h4>
           <p>{description}</p>

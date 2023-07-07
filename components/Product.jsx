@@ -5,7 +5,7 @@ import { useStateContext } from '../context/StateContext';
 const Product = ({product  }) => {
   const { qty, onAdd} = useStateContext();
   return (
-<div className="bg-white shadow-lg rounded-lg overflow-hidden w-max ">
+<div className="bg-white shadow-lg rounded-lg overflow-hidden w-max">
      
       <div className="relative">
           <Link  href= {`/product/${product.slug.current}`}>  <img
