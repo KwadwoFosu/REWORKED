@@ -7,7 +7,6 @@ const Landing = () => {
   const backgrounds = [
     '/Nutorla.jpg',
     '/IMG_0147.jpg',
-    
   ];
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const Landing = () => {
       return new Promise((resolve) => {
         const image = new Image();
         image.src = src;
-        image.onload = () => resolve(src);
+        image.addEventListener('load', () => resolve(src));
       });
     };
 
@@ -39,21 +38,24 @@ const Landing = () => {
     preloadImages();
   }, []);
 
-  const backgroundClass = classNames('bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center ', {
-    'bg-[url(/Nutorla.jpg)]': bgIndex === 0,
-    'bg-[url(/IMG_0147.jpg)]': bgIndex === 1,
-  });
+  const backgroundClass = classNames(
+    'bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center ',
+    {
+      'bg-[url(/Nutorla.jpg)]': bgIndex === 0,
+      'bg-[url(/IMG_0147.jpg)]': bgIndex === 1,
+    }
+  );
 
   return (
     <div className={backgroundClass} style={{ backgroundPosition: 'center top' }}>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
+      {!isLoading && (
         <div className="text-center">
           <h1 className="text-[80px] half:text-[150px] font-bold mb-4 text-zinc-900 font-eric p-3  text-slate-800 opacity-70">Nutorla</h1>
-          <Link href= '/Customize'><button className="mt-4 bg-zinc-900 border-2 border-black  text-white font-bold py-2 px-6 rounded-3xl font-eric">
-            Shop Now
-          </button></Link>
+          <Link href="/Customize">
+            <button className="mt-4 bg-zinc-900 border-2 border-black text-white font-bold py-2 px-6 rounded-3xl font-eric">
+              Shop Now
+            </button>
+          </Link>
         </div>
       )}
     </div>

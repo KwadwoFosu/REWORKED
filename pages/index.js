@@ -1,24 +1,11 @@
 import React from 'react'
-import { Herobanner, Product,Sidebar } from '../components/index'
 import { client } from '../lib/client'
-import { BsTelephoneInbound,BsFillArrowRightCircleFill } from 'react-icons/bs'
-import { TbTruckDelivery } from 'react-icons/tb'
-import { FaRegHandshake } from 'react-icons/fa'
-import Link from 'next/link'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 import Landing from '../components/Landing'
-import Sidebar2 from '../components/Sidebar2'
 import ImageCard from '../components/ImageCard'
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
-const index = ({products, bannerData , productshot,productspants,productsjump, productsblouses,productsskirts, productstwopieces,productsdresses,productsblazers} ) => {
-
- 
- 
-
-
+const index = ({ bannerData } ) => {
   return (
     <div >
       < Landing />
@@ -34,10 +21,6 @@ const index = ({products, bannerData , productshot,productspants,productsjump, p
       <div><ImageCard imageUrl= '/13.jpg'  name= "Plus-one Perfection"/></div>
       <div><ImageCard imageUrl= '/IMG_0258.jpg'  name= "A Girl's Perfect Pick"/></div>
       
-      
-    
-              
-              
       </div>
     {/*  <div className="flex flex-row gap-2">
         <div className=" flex-1 items-center w-full h-[500px] mb-10 sm:w-1/2 half: h-[500px]    "><Herobanner herobanner = { bannerData} /></div> 
@@ -52,39 +35,13 @@ const index = ({products, bannerData , productshot,productspants,productsjump, p
 }
 //create sanity query
 export const getServerSideProps = async () => {
- const query = '*[_type== "product" ][0..5]';
- const products = await client.fetch(query);
- const queryhot = '*[_type== "product" && category == "Hot Deals" ]';
- const productshot = await client.fetch(queryhot);
- const querypants = '*[_type== "product" && category == "Pants" ][0..1]';
- const productspants = await client.fetch(querypants);
- const queryjump = '*[_type== "product" && category == "Jumpsuits" ][0..1]';
- const productsjump = await client.fetch(queryjump);
- const queryblouses = '*[_type== "product" && category == "Blouses" ][0..1]';
- const productsblouses = await client.fetch(queryblouses);
- const queryskirts = '*[_type== "product" && category == "Skirts" ][0..1]';
- const productsskirts = await client.fetch(queryskirts);
- const querytwopieces = '*[_type== "product" && category == "Two pieces" ][0..1]';
- const productstwopieces = await client.fetch(querytwopieces);
- const querydresses = '*[_type== "product" && category == "Dresses" ][0..1]';
- const productsdresses = await client.fetch(querydresses);
- const queryblazers = '*[_type== "product" && category == "Blazers" ][0..1]';
- const productsblazers = await client.fetch(queryblazers);
- const bannerquery = '*[_type== "banner" ]';
+  const bannerquery = '*[_type== "banner" ]';
  const bannerData = await client.fetch(bannerquery);
 
  return {
    props: {
-     products,
      bannerData,
-     productshot,
-     productspants,
-     productsjump,
-     productsblouses,
-     productsskirts,
-     productstwopieces,
-     productsdresses,
-     productsblazers,
+     
     }
    }
 }
