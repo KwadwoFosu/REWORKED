@@ -9,7 +9,7 @@ const Product = ({product  }) => {
 <div className="bg-white shadow-lg rounded-lg overflow-hidden h-25">
      
       <div className="relative">
-          <Link  href= {`/product/${product.slug.current}`}>  <Image
+          <Link  href= {`/product/${product.slug.current}`}>  <img
           src={urlFor(product.image && product.image[0])}
           alt="Product"
           className="w-full h-80 object-cover"
