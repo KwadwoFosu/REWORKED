@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import Link from 'next/link';
 
 const Landing = () => {
@@ -12,7 +12,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 5000);
+    }, 50000);
 
     return () => clearInterval(interval);
   }, []);
@@ -38,7 +38,7 @@ const Landing = () => {
     preloadImages();
   }, []);
 
-  const backgroundClass = classNames(
+  const backgroundClass = clsx(
     'bg-cover bg-center bg-no-repeat h-screen w-full flex items-center justify-center ',
     {
       'bg-[url(/Nutorla.jpg)]': bgIndex === 0,
