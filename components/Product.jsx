@@ -2,13 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import { urlFor } from '../lib/client'
 import { useStateContext } from '../context/StateContext';
+import Image from 'next/image';
 const Product = ({product  }) => {
   const { qty, onAdd} = useStateContext();
   return (
 <div className="bg-white shadow-lg rounded-lg overflow-hidden h-25">
      
       <div className="relative">
-          <Link  href= {`/product/${product.slug.current}`}>  <img
+          <Link  href= {`/product/${product.slug.current}`}>  <Image
           src={urlFor(product.image && product.image[0])}
           alt="Product"
           className="w-full h-80 object-cover"

@@ -4,6 +4,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 import { BiCircle } from 'react-icons/bi';
+import Image from 'next/image';
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, description, price } = product;
@@ -43,7 +44,7 @@ const ProductDetails = ({ product, products }) => {
           </div>
           <div className='small-images-container flex-wrap'>
             {image?.map((item, i) => (
-              <img
+              <Image
                 alt='a'
                 src={urlFor(item)}
                 className={i === index ? 'small-image selected-image' : 'small-image'}

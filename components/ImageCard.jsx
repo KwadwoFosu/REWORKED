@@ -1,10 +1,10 @@
 import React from 'react';
-
+import Image from 'next/image';
 const ImageCard = ({ imageUrl,name }) => {
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden h-25 ">
       <div className="relative">
-        <img
+        <Image
           src={imageUrl}
           alt="Product"
           className="w-full h-80 object-cover"
