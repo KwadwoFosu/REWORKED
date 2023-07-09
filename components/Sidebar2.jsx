@@ -18,7 +18,7 @@ const Sidebar2 = () => {
       <div className="flex p-2 half:space-x-4 ">
         {categories.map((category) => (
           <Link key={category.name} href={{ pathname: category.link, query: { category: category.name } }}>
-            <p className="text-lg text-white  hover:text-gray-900 cursor-pointer half:text-lg font-gen tracking-[2px]">
+            <p className="text-sm text-white  hover:text-gray-900 cursor-pointer half:text-lg font-gen tracking-[2px]">
               {category.name}
             </p>
           </Link>

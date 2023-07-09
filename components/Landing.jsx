@@ -50,7 +50,7 @@ const Landing = () => {
     <div className={backgroundClass} style={{ backgroundPosition: 'center top' }}>
       {!isLoading && (
         <div className="text-center">
-          <h1 className="text-[50px] tracking-[17px]  half:tracking-[30px] half:text-[180px] font-bold mb-4 m-2 text-white font-eric text-slate-800 opacity-90 ">NUTORLA</h1>
+          <h1 className="text-[50px] tracking-[15px]  half:tracking-[30px] half:text-[170px] font-bold text- font-eric text-white opacity-70 ">NUTORLA</h1>
           <Link href="/Customize">
             <button className="mt-4 bg-zinc-900 border-2 border-black text-white font-bold py-2 px-6 rounded-3xl font-eric opacity-90">
               Shop Now
