@@ -12,7 +12,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 90000);
+    }, 100000);
 
     return () => clearInterval(interval);
   }, []);
@@ -48,7 +48,6 @@ const Landing = () => {
 
   return (
     <div className={backgroundClass} style={{ backgroundPosition: 'center top' }}>
-      {!isLoading && (
         <div className="text-center">
           <h1 className="text-[50px] tracking-[17px]  half:tracking-[30px] half:text-[180px] font-bold mb-4 m-2 text-white font-eric text-slate-800 opacity-80 ">NUTORLA</h1>
           <Link href="/Customize">
@@ -57,7 +56,6 @@ const Landing = () => {
             </button>
           </Link>
         </div>
-      )}
     </div>
   );
 };
