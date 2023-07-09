@@ -36,7 +36,7 @@ const ProductDetails = ({ product, products }) => {
   
   return (
     <div>
-      <div className='product-detail-container'>
+      <div className='product-detail-container font-gen tracking-[2px]'>
         <div>
           <div className='image-container'>
             <img src={urlFor(image && image[index])} alt='a' className='h-75' />
@@ -52,9 +52,9 @@ const ProductDetails = ({ product, products }) => {
             ))}
           </div>
         </div>
-        <div className='product-detail-desc '>
-          <h1 className='text-[20px] font-bold half:text-[50px]'>{name}</h1>
-          <h4 className='font-semibold text-lg'>Details</h4>
+        <div className='product-detail-desc font-gen tracking-[2px] '>
+          <h1 className='text-[30px] font-bold half:text-[50px] font-gen tracking-[2px]'>{name}</h1>
+          <h4 className='font-semibold text-lg font-gen tracking-[2px]'>Details</h4>
           <p>{description}</p>
           <p className='price'>GHC {price}</p>
           <div></div>
@@ -70,7 +70,7 @@ const ProductDetails = ({ product, products }) => {
               </span>
             </p>
           </div>
-          <div className='size'>
+          <div className='font-gen tracking-[2px]'>
             <label htmlFor='size' className='block font-medium mb-1'>
               Size:
             </label>
@@ -89,7 +89,7 @@ const ProductDetails = ({ product, products }) => {
             </select>
             
           </div >
-          <div className='color'>
+          <div className='font-gen tracking-[2px]'>
             <label htmlFor='color' className='block font-medium mb-1'>
               Color:
             </label>

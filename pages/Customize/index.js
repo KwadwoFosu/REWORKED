@@ -2,18 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Herobanner, Product,Sidebar } from '../../components/index'
 import { client } from '../../lib/client'
-import { BsTelephoneInbound,BsFillArrowRightCircleFill } from 'react-icons/bs'
-import { TbTruckDelivery } from 'react-icons/tb'
-import { FaRegHandshake } from 'react-icons/fa'
-import Link from 'next/link'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-import Landing from '../../components/Landing'
-import Sidebar2 from '../../components/Sidebar2'
-import ImageCard from '../../components/ImageCard'
-import Filter from '../../components/Filter'
-import { BiFilterAlt } from 'react-icons/bi'
-import Cartlogin from '../../components/Cartlogin'
+
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
@@ -32,7 +21,7 @@ const index = ({products} ) => {
         
      <div className='bg-slate-50'>
       <div className='bg-zinc-900 flex flex-row justify-between text-white font-semibold text-[25px]    '>
-        <h2 className='font-sans'>Products</h2>
+        <h2 className='font-gen tracking-[2px]'>Products</h2>
         
       </div>
         <div >
@@ -44,6 +33,9 @@ const index = ({products} ) => {
           {product._id} product = {product}/>)}
           </div>
        </div>
+       <br/>
+       <br/>
+       <br/>
        </div>
        
     </div>

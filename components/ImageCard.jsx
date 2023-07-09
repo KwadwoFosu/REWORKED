@@ -12,7 +12,7 @@ const ImageCard = ({ imageUrl,name }) => {
      
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-800 text-wrap">{name}</h3>
+        <h3 className="text-lg font-semibold text-gray-800 text-wrap font-gen tracking-[2px]">{name}</h3>
         <p className="text-sm text-gray-600 mt-2">
         
         </p>

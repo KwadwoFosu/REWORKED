@@ -19,7 +19,7 @@ const Sidebar = () => {
 
       {categories.map((category) => (
         <Link key={category.name} href={{ pathname: category.link, query: { category: category.name } }}>
-          <p className='px-5 m-3 cursor-pointer rounded-xl hover:bg-blue-300'>{category.name}</p>
+          <p className='px-5 m-3 cursor-pointer rounded-xl hover:bg-orange-300 font-gen'>{category.name}</p>
         </Link>
       ))}
     </div>

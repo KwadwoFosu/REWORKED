@@ -12,7 +12,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 20000);
+    }, 50000);
 
     return () => clearInterval(interval);
   }, []);
@@ -50,9 +50,9 @@ const Landing = () => {
     <div className={backgroundClass} style={{ backgroundPosition: 'center top' }}>
       {!isLoading && (
         <div className="text-center">
-          <h1 className="text-[80px] half:text-[150px] font-bold mb-4 text-zinc-900 font-eric p-3  text-slate-800 opacity-70">Nutorla</h1>
+          <h1 className="text-[50px] tracking-[17px]  half:tracking-[30px] half:text-[180px] font-bold mb-4 m-2 text-white font-eric text-slate-800 opacity-90 ">NUTORLA</h1>
           <Link href="/Customize">
-            <button className="mt-4 bg-zinc-900 border-2 border-black text-white font-bold py-2 px-6 rounded-3xl font-eric">
+            <button className="mt-4 bg-zinc-900 border-2 border-black text-white font-bold py-2 px-6 rounded-3xl font-eric opacity-90">
               Shop Now
             </button>
           </Link>

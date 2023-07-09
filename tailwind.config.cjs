@@ -11,7 +11,9 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      eric: ["Playfair Display","serif"]
+      eric: ["Castoro","serif"],
+      gen: ["Genos","sans-serif"],
+
     },
     screens: {
       

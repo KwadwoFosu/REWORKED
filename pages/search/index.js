@@ -17,7 +17,7 @@ const SearchPage = ({ products }) => {
       </div>
       <div>
         {products.length > 0 ? (
-          <div className="products-container mx-3 justify-center">
+          <div className="products-container mx-3 justify-center font-gen tracking-[2px]">
             {products.map((product) => (
               <Product key={product._id} product={product} />
             ))}

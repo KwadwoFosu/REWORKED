@@ -9,7 +9,7 @@ const Index = ({ products ,category}) => {
     <div className='flex flex-col '>
             
         <div className='products-heading bg-zinc-900'>
-        <h2 className='font-sans font-semibold'>{category}</h2>
+        <h2 className='font-gen font-semibold tracking-[2px]'>{category}</h2>
       
       </div>
       <div className='products-container mx-3 justify-center'>

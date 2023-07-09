@@ -9,12 +9,12 @@ const index = ({ bannerData } ) => {
   return (
     <div >
       < Landing />
-      <div className='bg-slate-50 mt-[70px]  '>
+      <div className='mt-[70px]  '>
       {/* <div className='text-white font-semibold text-[25px] justify-center bg-zinc-900  '>
         <h2 className='font-sans '>GALLERY</h2>
         
       </div>*/}
-       <div className='products-container mx-3 justify-center p-3'   >
+       <div className='products-container mx-3 justify-center p-3 font-gen'   >
       <div>
       <ImageCard imageUrl= '/IMG_0173.jpg' name= "Pants Alesa" /></div>
       <div><ImageCard imageUrl= '/12.jpg' name="Shop The Look " /></div>

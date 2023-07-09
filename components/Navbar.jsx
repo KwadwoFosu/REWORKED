@@ -41,7 +41,7 @@ const Navbar = () => {
               </div>
            
           )}
-          <Link href='/' className='font-bold text-lg text-white '>
+          <Link href='/' className='font-bold text-lg text-white font-eric m-2 tracking-[2px] '>
             NUTORLA
           </Link>
         </p>
