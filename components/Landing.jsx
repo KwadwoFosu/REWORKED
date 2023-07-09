@@ -12,7 +12,7 @@ const Landing = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-    }, 50000);
+    }, 90000);
 
     return () => clearInterval(interval);
   }, []);
