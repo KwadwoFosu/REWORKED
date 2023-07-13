@@ -1,0 +1,25 @@
+name: Publish Next.js App to cPanel
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy to cPanel
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Install dependencies and build Next.js app
+        run: |
+          npm install
+          npm run build
+      
+      - name: Publish to cPanel
+        uses: adomfosugit/reworked/cpanel-ftp-action@v1
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          remote-dir: public_html/
