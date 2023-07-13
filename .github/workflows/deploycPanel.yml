@@ -10,16 +10,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Install dependencies and build Next.js app
         run: |
-          npm install
+          npm ci
           npm run build
-      
-      - name: Publish to cPanel
-        uses: adomfosugit/cpanel-ftp-action@v1
+
+      - name: Deploy to cPanel
+        uses: jakejarvis/cpanel-git-deploy@4.3.1
         with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          remote-dir: public_html/
+          cpanel-username: ${{ secrets.FTP_USERNAME }}
+          cpanel-password: ${{ secrets.FTP_PASSWORD }}
+          cpanel-domain: ${{ secrets.FTP_SERVER }}
+          cpanel-directory: public_html
