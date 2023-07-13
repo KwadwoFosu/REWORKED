@@ -1,25 +1,19 @@
-name: Publish Next.js App to cPanel
+name: Deploy Private GitHub repository to cPanel
 on:
   push:
     branches:
       - main
 jobs:
-  deploy:
-    name: Deploy to cPanel
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Install dependencies and build Next.js app
-        run: |
-          npm ci
-          npm run build
-
-      - name: Deploy to cPanel
-        uses: jakejarvis/cpanel-git-deploy@4.3.1
-        with:
-          cpanel-username: ${{ secrets.FTP_USERNAME }}
-          cpanel-password: ${{ secrets.FTP_PASSWORD }}
-          cpanel-domain: ${{ secrets.FTP_SERVER }}
-          cpanel-directory: public_html
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
