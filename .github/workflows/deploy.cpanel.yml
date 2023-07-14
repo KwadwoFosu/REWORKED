@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/nutorla3/nutorla/
-    - /bin/cp *
+    - /bin/cp * $DEPLOYPATH
