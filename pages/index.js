@@ -14,7 +14,7 @@ const index = ({ bannerData } ) => {
         <h2 className='font-sans '>GALLERY</h2>
         
       </div>*/}
-       <div className='products-container mx-3 justify-center p-3 font-gen'   >
+       <div className='products-container mx-3 justify-center p-3 '   >
       <div>
       <ImageCard imageUrl= '/IMG_0173.jpg' name= "Pants Alesa" /></div>
       <div><ImageCard imageUrl= '/12.jpg' name="Shop The Look " /></div>
