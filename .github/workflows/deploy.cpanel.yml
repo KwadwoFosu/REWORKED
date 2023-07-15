@@ -1,5 +1,8 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/nutorla3/repositories/REWORKED/
-    
+    - name: Set DEPLOYPATH
+      command: export DEPLOYPATH=/home/nutorla3/repositories/REWORKED/
+
+    - name: Copy files to DEPLOYPATH
+      command: /bin/cp -r * $DEPLOYPATH
