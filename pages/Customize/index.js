@@ -6,7 +6,7 @@ import { client } from '../../lib/client'
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
-const index = ({products} ) => {
+const index = ({products,Euro,USD,GBP} ) => {
   const [showFilter, setShowFilter] = useState(false);
   const handleClick = () => {
     setShowFilter(!showFilter);
@@ -15,6 +15,7 @@ const index = ({products} ) => {
   const handleClose = () => {
     setShowFilter(false);
   };
+  
   return (
     <div >
     
@@ -25,12 +26,14 @@ const index = ({products} ) => {
         
       </div>
         <div >
-       {/*<button  className= "font-semibold font-sans  border-orange-700" onClick={handleClick}><BiFilterAlt size={30}/></button>
-
-        {showFilter && <Filter onClose={handleClose} />}*/}
+      
          <div className='products-container mx-3 justify-center'>
           {products.map((product) => <Product  key =
-          {product._id} product = {product}/>)}
+          {product._id} product = {product} 
+          EUR={Euro}
+          GBP={GBP}
+          USD={USD}
+          />)}
           </div>
        </div>
        <br/>
@@ -40,7 +43,7 @@ const index = ({products} ) => {
        
     </div>
   )
-}
+} 
 //create sanity query
 export const getServerSideProps = async () => {
  const query = '*[_type== "product" ]';
@@ -63,7 +66,9 @@ export const getServerSideProps = async () => {
  const productsblazers = await client.fetch(queryblazers);
  const bannerquery = '*[_type== "banner" ]';
  const bannerData = await client.fetch(bannerquery);
-
+ const ratequery = '*[_type== "rate" ]';
+ const rate = await client.fetch(ratequery);
+ const { Euro, GBP, USD } = rate[0];
  return {
    props: {
      products,
@@ -76,6 +81,10 @@ export const getServerSideProps = async () => {
      productstwopieces,
      productsdresses,
      productsblazers,
+     rate,
+     Euro,
+      GBP,
+      USD,
     }
    }
 }

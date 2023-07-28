@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { urlFor } from '../lib/client'
 import { useStateContext } from '../context/StateContext';
 
-const Product = ({product  }) => {
-  const { qty, onAdd} = useStateContext();
+
+const Product = ({product,EUR,GBP,USD }) => {
+
   
   return (
 <div className="bg-white shadow-lg rounded-lg overflow-hidden h-25">
@@ -15,7 +16,8 @@ const Product = ({product  }) => {
           alt="Product"
           className="w-full h-80 object-cover"
         />
-        </Link> 
+        </Link>
+         
         
       </div>
       <div className="p-4">
@@ -26,7 +28,10 @@ const Product = ({product  }) => {
        
         <div className="flex items-center justify-between mt-4 font-gen">
           <span className="text-gray-800 font-bold">GHC {product.price}</span> 
-
+         <div className='flex flex-col'>
+          
+          
+          </div>
           
         </div>
       </div>
@@ -37,5 +42,6 @@ const Product = ({product  }) => {
 
   )
 }
+
 
 export default Product 
