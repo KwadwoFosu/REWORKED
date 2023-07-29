@@ -2,7 +2,7 @@ import React from 'react'
 
 const Return = () => {
   return (
-    <div>
+    <div className='mb-10 half:mb-[100px]'>
          <div className='mx-3'>
             <h2 className='products-heading1 font-bold text-[30px] text-zinc-500'>Return Policy</h2>
             <p>

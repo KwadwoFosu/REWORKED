@@ -9,7 +9,7 @@ import Sidebar1 from './Sidebar1';
 import Loginmenu from './Loginmenu';
 import { BiMoneyWithdraw, BiSearch } from 'react-icons/bi';
 import Sidebar2 from './Sidebar2';
-import Currency from './Currency';
+
 
 
 const Navbar = () => {
@@ -28,7 +28,7 @@ const Navbar = () => {
   }
   return (
 
-    <div className='items-center rounded-lg flex-col overflow-hidden'>
+    <div className='items-center  flex-col overflow-hidden'>
       <div className='bg-zinc-900 flex items-center justify-between p-3  text-white'>
         <p className='flex items-center'>
           <TfiMenu className='mx-2 half:hidden' onClick={handleButtonClick} />

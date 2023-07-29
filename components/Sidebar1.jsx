@@ -49,14 +49,7 @@ const Sidebar1 = ({ onClose }) => {
         <div><Link href = "https://wa.me/message/BROZ2ECEMXJVM1"><AiOutlineWhatsApp size={30} className='text-green-500' /></Link></div>
         <div><Link href= "https://www.facebook.com/nutorla?mibextid=LQQJ4d">< AiFillFacebook size ={30} className='text-blue-500'/></Link></div>
       </div>
-      <div className="p-4 m-4">
-        <Link href='/Information'>
-      <div
-        className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]"
-        
-      >
-        Help & Information
-      </div></Link>
+      
       
       <Link href='/Information'><div
         className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]"
@@ -64,14 +57,8 @@ const Sidebar1 = ({ onClose }) => {
       >
         About Nutorla
       </div></Link>
-      <Link href = "/Information">
-      <div
-        className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]"
-        
-      >
-        Address
-      </div></Link>
-      <Link href= "/Information">
+      
+      <Link href= "/Return">
       <div
         className="block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]"
         
@@ -83,7 +70,7 @@ const Sidebar1 = ({ onClose }) => {
         
       
     </div>
-    </div>
+  
   );
 };
 

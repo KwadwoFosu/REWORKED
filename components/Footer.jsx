@@ -2,14 +2,15 @@ import Link from 'next/link';
 import React from 'react';
 import { AiFillFacebook, AiFillInstagram, AiOutlineWhatsApp,  } from 'react-icons/ai';
 import { FaSnapchat } from 'react-icons/fa';
+import Address from './Address';
 
 const Footer = () => {
   return (
     <div className="bg-zinc-900 py-4 ">
       <div className="container mx-auto flex flex-col half:flex-row justify-between cursor-ponter items-center text-white text-lg">
-      <Link href ="/Information"><div className='block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]'>Help & Information</div></Link>
+      
         <Link href ="/Information"><div className='block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]'>About Nutorla</div></Link>
-        <Link href = "/Information"><div className='block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]'>Returns Information</div></Link>
+        <Link href = "/Return "><div className='block py-2 text-orange-500 hover:text-orange-700 cursor-pointer font-gen tracking-[2px]'>Returns Information</div></Link>
         
 
         
