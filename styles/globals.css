@@ -121,6 +121,20 @@ width: 100%;
   }
   
 }
+/* testimonialAnimation.css */
+/* testimonialAnimation.css */
+@keyframes fade-in-out {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 12s linear infinite;
+}
+
+
 @keyframes rotate2 {
   0%{
     transform: rotateX(50deg)rotateY(10deg)rotateZ(0deg);

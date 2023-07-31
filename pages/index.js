@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState,useEffect } from 'react'
 import { client } from '../lib/client'
 import Landing from '../components/Landing'
 import ImageCard from '../components/ImageCard'
@@ -7,6 +8,23 @@ import Testimonial from '../components/Testimonial'
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
 const index = ({ bannerData } ) => {
+  const testimonialsData = [
+    { imageUrl: '/IMG_0173.jpg', name: 'Sarah Dyan' },
+    { imageUrl: '/12.jpg', name: 'Jasmine Alesa' },
+    { imageUrl: '/13.jpg', name: 'Chrisitne Mills' },
+    { imageUrl: '/IMG_0258.jpg', name: "Clara Mimie" },
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 10000); // Show each testimonial for 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div >
       < Landing />
@@ -20,15 +38,17 @@ const index = ({ bannerData } ) => {
       
       </div>
 
-      
-      <div className='products-container mx-3 justify-center p-3 bg-[url(/IMG_0173.jpg)]  no-repeat'   >
-      
-      <div><Testimonial imageUrl= '/IMG_0173.jpg' name= "Pants Alesa" /></div>
-     <div><Testimonial imageUrl= '/12.jpg' name="Shop The Look " /></div>
-     <div><Testimonial imageUrl= '/13.jpg'  name= "Plus-one Perfection"/></div>
-     <div><Testimonial imageUrl= '/IMG_0258.jpg'  name= "A Girl's Perfect Pick"/></div>
-     
-     </div>
+      <div className="products-container mx-auto justify-center p-3 bg-[url(/IMG_0173.jpg)] w-[600px]">
+      <div>
+        {testimonialsData.map((testimonial, index) => (
+          <div key={index}>
+            {currentIndex === index && (
+              <Testimonial imageUrl={testimonial.imageUrl} name={testimonial.name} />
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
       
 
 
