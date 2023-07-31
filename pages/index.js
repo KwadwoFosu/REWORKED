@@ -21,7 +21,7 @@ const index = ({ bannerData } ) => {
       setCurrentIndex((prevIndex) =>
         prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 10000); // Show each testimonial for 5 seconds
+    }, 40000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -38,13 +38,16 @@ const index = ({ bannerData } ) => {
       
       </div>
 
-      <div className="products-container mx-auto justify-center p-3 bg-[url(/IMG_0173.jpg)]">
+      <div className="products-container mx-3 justify-center p-3 bg-[url(/IMG_0173.jpg)]">
       <div>
         {testimonialsData.map((testimonial, index) => (
-          <div key={index}>
-            {currentIndex === index && (
-              <Testimonial imageUrl={testimonial.imageUrl} name={testimonial.name} />
-            )}
+          <div
+            key={index}
+            className={`${
+              currentIndex === index ? 'animate-fade-in-out' : 'hidden'
+            }`}
+          >
+            <Testimonial imageUrl={testimonial.imageUrl} name={testimonial.name} />
           </div>
         ))}
       </div>

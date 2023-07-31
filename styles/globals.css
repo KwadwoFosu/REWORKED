@@ -122,7 +122,6 @@ width: 100%;
   
 }
 /* testimonialAnimation.css */
-/* testimonialAnimation.css */
 @keyframes fade-in-out {
   0% { opacity: 0; }
   25% { opacity: 1; }
@@ -131,8 +130,15 @@ width: 100%;
 }
 
 .animate-fade-in-out {
-  animation: fade-in-out 12s linear infinite;
+  animation: fade-in-out 10s ease-in-out;
 }
+
+/* Hide testimonials initially */
+.hidden {
+  display: none;
+}
+
+
 
 
 @keyframes rotate2 {
