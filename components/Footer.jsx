@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { AiFillFacebook, AiFillInstagram, AiOutlineWhatsApp,  } from 'react-icons/ai';
 import { FaSnapchat } from 'react-icons/fa';
-import Address from './Address';
+
 
 const Footer = () => {
   return (
