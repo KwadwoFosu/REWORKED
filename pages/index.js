@@ -38,7 +38,7 @@ const index = ({ bannerData } ) => {
       
       </div>
 
-      <div className="products-container mx-auto justify-center p-3 bg-[url(/IMG_0173.jpg)] w-[600px]">
+      <div className="products-container mx-auto justify-center p-3 bg-[url(/IMG_0173.jpg)]">
       <div>
         {testimonialsData.map((testimonial, index) => (
           <div key={index}>
