@@ -134,6 +134,9 @@ export const StateContext = ({ children }) => {
       }
     }
   };
+  const calcPrice = (totalPrice, selectedCurrency) => {
+    calculatePriceInGHCCurrency (totalPrice,selectedCurrency);
+  }
 
 
 
@@ -176,6 +179,7 @@ export const StateContext = ({ children }) => {
         handleCurrencyChange,
         calculatePriceInCurrency,
         calculatePriceInGHCCurrency,
+        calcPrice,
       
         
         
