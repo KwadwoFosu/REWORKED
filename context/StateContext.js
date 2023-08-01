@@ -55,9 +55,6 @@ export const StateContext = ({ children }) => {
       return price * 1; // Assuming GBP is a predefined conversion rate
     } else if (currency === 'USD') {
       return price * 0.088; // Assuming USD is a predefined conversion rate  
-    }
-    else if (currency === 'Yen') {
-      return price * 0.088; // Assuming USD is a predefined conversion rate  
     } else {
       return price; // Return the original price if no matching currency is found
     }
@@ -73,9 +70,6 @@ export const StateContext = ({ children }) => {
     else if (currency === 'GHC') {
       return price/1; // Assuming GBP is a predefined conversion rate
     } else if (currency ==='USD') {
-      return price / 0.088; // Assuming USD is a predefined conversion rate  
-    }
-    else if (currency ==='Yen') {
       return price / 0.088; // Assuming USD is a predefined conversion rate  
     } else {
       return price; // Return the original price if no matching currency is found
