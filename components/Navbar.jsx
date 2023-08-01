@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
 
     <div className='items-center  flex-col overflow-hidden'>
-      <div className='bg-zinc-900 flex items-center justify-between p-3  text-white'>
+      <div className='bg-zinc-900 flex  justify-between p-3  text-white'>
         <p className='flex items-center'>
           <TfiMenu className='mx-2 half:hidden' onClick={handleButtonClick} />
           {isOpen && (
@@ -60,7 +60,7 @@ const Navbar = () => {
         
          
 
-          <button type='button' className='cart-icon z-50 '>
+          <button type='button' className='cart-icon z-60 '>
             <Loginmenu />
           </button>
 
