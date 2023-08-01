@@ -15,7 +15,6 @@ const Currency = () => {
     <div className='text-black h-2'>
       <select onChange={handleSelectChange} value={selectedCurrency}>
         <option value="GHC">GHC</option>
-        <option value="Yen">Yen</option>
         <option value="EUR">EUR</option>
         <option value="GBP">GBP</option>
       </select>
