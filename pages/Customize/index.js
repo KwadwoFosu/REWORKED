@@ -2,11 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import { Herobanner, Product,Sidebar } from '../../components/index'
 import { client } from '../../lib/client'
+import Currency from '../../components/Currency'
+import { useStateContext } from '../../context/StateContext'
 
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
-const index = ({products,Euro,USD,GBP} ) => {
+const index = ({products} ) => {
   const [showFilter, setShowFilter] = useState(false);
   const handleClick = () => {
     setShowFilter(!showFilter);
@@ -15,6 +17,9 @@ const index = ({products,Euro,USD,GBP} ) => {
   const handleClose = () => {
     setShowFilter(false);
   };
+  const {selectedCurrency} = useStateContext;
+
+  
   
   return (
     <div >
@@ -23,16 +28,16 @@ const index = ({products,Euro,USD,GBP} ) => {
      <div className='bg-slate-50'>
       <div className='bg-zinc-900 flex flex-row justify-between text-white font-semibold text-[25px]    '>
         <h2 className='font-gen tracking-[2px]'>Products</h2>
-        
+        <Currency />
       </div>
+
+      
         <div >
       
          <div className='products-container mx-3 justify-center'>
           {products.map((product) => <Product  key =
           {product._id} product = {product} 
-          EUR={Euro}
-          GBP={GBP}
-          USD={USD}
+          selectedCurrency= {selectedCurrency} 
           />)}
           </div>
        </div>

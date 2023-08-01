@@ -28,7 +28,7 @@ const handleClose = () => {
 }
 
 
-    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart} = useStateContext();
+    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatedPriceInCurrency} = useStateContext();
     // Local Storage
   
      
@@ -61,9 +61,9 @@ const handleClose = () => {
     reference: (new Date()).getTime(),
     username: `${user.name}`,
     email: `${user.email}`,
-    amount: `${totalPrice * 100}`,
-    publicKey: 'pk_live_7818dae2e6cdb971945ad64c97354ea97bc01afb',
-    //publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
+    amount: `${totalPrice * 100*calculatedPriceInCurrency(1,GHC)}`,
+    //publicKey: 'pk_live_7818dae2e6cdb971945ad64c97354ea97bc01afb',
+    publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
     currency: 'GHS',
     metadata:{
       "custom_fields":[
@@ -145,7 +145,7 @@ const PaystackHookExample = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4> GHC {item.price}</h4>
+                  <h4> {selectedCurrency} {item.price}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
@@ -174,7 +174,7 @@ const PaystackHookExample = () => {
                   <button
                     type="button"
                     className="remove-item"
-                    onClick={() => onRemove(item)}
+                    onClick={() => onRemove(item,selectedCurrency)}
                   >
                     <TiDeleteOutline />
                   </button>
@@ -187,7 +187,7 @@ const PaystackHookExample = () => {
           <div className="cart-bottom">
             <div className="total">
               <h3>Subtotal:</h3>
-              <h3> GHC {totalPrice}</h3>
+              <h3> {selectedCurrency} {totalPrice}</h3>
             </div>
         <div className='btn-container'>
          <div > 

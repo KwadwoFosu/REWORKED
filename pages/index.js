@@ -25,6 +25,7 @@ const index = ({ bannerData } ) => {
 
     return () => clearInterval(interval);
   }, []);
+  
   return (
     <div >
       < Landing />

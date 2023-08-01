@@ -5,7 +5,12 @@ import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
 
+
 const ProductDetails = ({ product, products }) => {
+  const {selectedCurrency,calculatePriceInCurrency} = useStateContext();
+  const priceInSelectedCurrency = calculatePriceInCurrency(
+    product.price,
+    selectedCurrency);
   const { image, name, description, price } = product;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd } = useStateContext();
@@ -56,7 +61,7 @@ const ProductDetails = ({ product, products }) => {
           <h1 className='text-[30px] font-bold half:text-[50px] font-gen tracking-[2px]'>{name}</h1>
           <h4 className='font-semibold text-lg font-gen tracking-[2px]'>Details</h4>
           <p>{description}</p>
-          <p className='price'>GHC {price}</p>
+          <p className='price'>{selectedCurrency} {priceInSelectedCurrency}</p>
           <div></div>
           <div className='quantity'>
             <h3>Quantity:</h3>
@@ -114,7 +119,7 @@ const ProductDetails = ({ product, products }) => {
             
           </div>
           <div className='buttons'>
-            <button type='button' className='add-to-cart' onClick={() => onAdd(product, qty,selectedSize, selectedColor)}>
+            <button type='button' className='add-to-cart' onClick={() => onAdd(product, qty,selectedSize, selectedColor,selectedCurrency)}>
               Add to Cart
             </button>
             {/* <button type = 'button' 
@@ -134,7 +139,7 @@ const ProductDetails = ({ product, products }) => {
         <div className='marquee'>
           <div className='maylike-products-container track'>
             {products.map((item) => (
-              <Product key={item._id} product={item}  />
+              <Product key={item._id} product={item} selectedCurrency={selectedCurrency}  />
             ))}
           </div>
         </div>

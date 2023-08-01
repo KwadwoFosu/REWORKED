@@ -1,5 +1,5 @@
 
-  import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 
 const Context = createContext();
@@ -11,7 +11,10 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
   const [cont, setCont] = useState(false);
-
+  const [selectedCurrency, setSelectedCurrency] = useState('GHC');
+  const handleCurrencyChange = (currency) => {
+    setSelectedCurrency(currency);
+  };
 
   const clearCart = () => {
     setCartItems([]); // Clear the cart items by setting an empty array
@@ -40,15 +43,31 @@ export const StateContext = ({ children }) => {
       setTotalQuantities(totalQuantities);
     }
   }, []);
+  const calculatePriceInCurrency = ( price,currency) =>{
+    // Perform any necessary calculations or conversions based on the currency here
+    // For simplicity, let's assume the conversion rates are already available
+    if (currency === 'EUR') {
+      return price * 2; // Assuming EUR is a predefined conversion rate
+    } else if (currency === 'GBP') {
+      return price * 0.2; // Assuming GBP is a predefined conversion rate
+    }
+    else if (currency === 'GHC') {
+      return price * 1; // Assuming GBP is a predefined conversion rate
+    } else if (currency === 'USD') {
+      return price * 0.02; // Assuming USD is a predefined conversion rate  
+    } else {
+      return price; // Return the original price if no matching currency is found
+    }
+  }
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const onAdd = (product, quantity,size,color) => {
+  const onAdd = (product, quantity,size,color,selectedCurrency) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
     
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + calculatePriceInCurrency(product.price,selectedCurrency) * quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
     
     if (checkProductInCart) {
@@ -73,11 +92,11 @@ export const StateContext = ({ children }) => {
     toast.success(`${qty} ${product.name} added to the cart.`);
   };
 
-  const onRemove = (product) => {
+  const onRemove = (product,selectedCurrency) => {
     foundProduct = cartItems.find((item) => item._id === product._id);
     const newCartItems = cartItems.filter((item) => item._id !== product._id);
 
-    setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice - calculatePriceInCurrency(foundProduct.price,selectedCurrency) * foundProduct.quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity);
     setCartItems(newCartItems);
   };
@@ -136,6 +155,10 @@ export const StateContext = ({ children }) => {
         cont,
         setCont,
         clearCart,
+        selectedCurrency,
+        setSelectedCurrency,
+        handleCurrencyChange,
+        calculatePriceInCurrency,
       
         
         
