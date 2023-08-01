@@ -47,7 +47,7 @@ export const StateContext = ({ children }) => {
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
     if (currency === 'EUR') {
-      return price * 0.08; // Assuming EUR is a predefined conversion rate
+      return price * 0.082; // Assuming EUR is a predefined conversion rate
     } else if (currency === 'GBP') {
       return price * 0.2; // Assuming GBP is a predefined conversion rate
     }
