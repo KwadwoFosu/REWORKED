@@ -61,7 +61,7 @@ const handleClose = () => {
     reference: (new Date()).getTime(),
     username: `${user.name}`,
     email: `${user.email}`,
-    amount: `${totalPrice/totalPrice * 100 * calculatePriceInGHCCurrency(totalPrice, setSelectedCurrency)}`,
+    amount: `${(totalPrice/totalPrice) * 100 * calculatePriceInGHCCurrency(totalPrice, selectedCurrency)}`,
     //publicKey: 'pk_live_7818dae2e6cdb971945ad64c97354ea97bc01afb',
     publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
     currency: 'GHS',
