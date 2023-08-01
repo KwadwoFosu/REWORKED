@@ -28,7 +28,7 @@ const handleClose = () => {
 }
 
 
-    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatedPriceInCurrency} = useStateContext();
+    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatePriceInCurrency} = useStateContext();
     // Local Storage
   
      
@@ -145,7 +145,7 @@ const PaystackHookExample = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4> {selectedCurrency} {calculatedPriceInCurrency(item.price,selectedCurrency)}</h4>
+                  <h4> {selectedCurrency} {calculatePriceInCurrency(item.price,selectedCurrency)}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
