@@ -65,15 +65,13 @@ export const StateContext = ({ children }) => {
     if (currency === 'EUR') {
       return price/0.08; // Assuming EUR is a predefined conversion rate
     } else if (currency === 'GBP') {
-      return price * 0.2; // Assuming GBP is a predefined conversion rate
+      return price/0.2; // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'GHC') {
       return price/1; // Assuming GBP is a predefined conversion rate
-    } else if (currency === 'USD') {
+    } else (currency === 'USD') {
       return price/0.088; // Assuming USD is a predefined conversion rate  
-    } else {
-      return price; // Return the original price if no matching currency is found
-    }
+    } 
   }
 
   useEffect(() => {
