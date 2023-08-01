@@ -145,7 +145,7 @@ const PaystackHookExample = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4> {selectedCurrency} {item.price}</h4>
+                  <h4> {selectedCurrency} {calculatedPriceInCurrency(item.price,selectedCurrency)}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
