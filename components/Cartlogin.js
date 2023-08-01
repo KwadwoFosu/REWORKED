@@ -8,7 +8,7 @@ import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter} from 'next/router';
-import Image from 'next/image';
+
 
 
 
@@ -28,7 +28,7 @@ const handleClose = () => {
 }
 
 
-    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatePriceInCurrency,calculatePriceInGHCCurrency} = useStateContext();
+    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatePriceInCurrency,calculatePriceInGHCCurrency,setSelectedCurrency} = useStateContext();
     // Local Storage
   
      
@@ -61,7 +61,7 @@ const handleClose = () => {
     reference: (new Date()).getTime(),
     username: `${user.name}`,
     email: `${user.email}`,
-    amount: `${totalPrice/totalPrice * 100 * calculatePriceInGHCCurrency(totalPrice, selectedCurrency)}`,
+    amount: `${totalPrice/totalPrice * 100 * calculatePriceInGHCCurrency(totalPrice, setSelectedCurrency)}`,
     //publicKey: 'pk_live_7818dae2e6cdb971945ad64c97354ea97bc01afb',
     publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
     currency: 'GHS',
