@@ -40,7 +40,7 @@ export const StateContext = ({ children }) => {
       return price; // Return the original price if no matching currency is found
     }
   }
-  const calculatePriceInGHCCurrency = (price,currency) =>{
+  const calculatePriceInGHCCurrency = ( price,currency) =>{
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
     if (currency === 'EUR') {
