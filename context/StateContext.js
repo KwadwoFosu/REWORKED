@@ -47,15 +47,18 @@ export const StateContext = ({ children }) => {
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
     if (currency === 'EUR') {
-      return price * 0.08; // Assuming EUR is a predefined conversion rate
+      return (price * 0.08).toFixed(2); // Assuming EUR is a predefined conversion rate
     } else if (currency === 'GBP') {
-      return price * 0.2; // Assuming GBP is a predefined conversion rate
+      return (price * 0.2).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'GHC') {
-      return price * 1; // Assuming GBP is a predefined conversion rate
+      return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
+    }
+    else if (currency === 'USD') {
+      return (price * 0.088).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else {
-      return price * 0.088; // Return the original price if no matching currency is found
+      return price; // Return the original price if no matching currency is found
     }
   }
   const calculatePriceInGHCCurrency = ( price,currency) =>{
@@ -68,10 +71,15 @@ export const StateContext = ({ children }) => {
     }
     else if (currency === 'GHC') {
       return price/1; // Assuming GBP is a predefined conversion rate
-    } else {
-      return price/0.088; // Return the original price if no matching currency is found
+    } 
+    else if (currency === 'USD') {
+      return price/0.088; // Assuming GBP is a predefined conversion rate
+    } 
+    else {
+      return price; // Return the original price if no matching currency is found
     }
   }
+    
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -131,9 +139,7 @@ export const StateContext = ({ children }) => {
       }
     }
   };
-  const calcPrice = (totalPrice, selectedCurrency) => {
-    calculatePriceInGHCCurrency (totalPrice,selectedCurrency);
-  }
+ 
 
 
 

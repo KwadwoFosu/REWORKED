@@ -23,7 +23,7 @@ const LoginMenu = () => {
         <Popover.Panel
           className={`${
             open ? 'block' : 'hidden'
-          } absolute right-0 mb-3 z-50 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none`}
+          } fixed right-0  z-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 `}
         >
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
             <>

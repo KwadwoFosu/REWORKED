@@ -81,7 +81,7 @@ const handleClose = () => {
       ]
     }
 };
- 
+ {console.log(calculatePriceInGHCCurrency)}
 // you can call this function anything
 const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
