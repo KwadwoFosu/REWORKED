@@ -51,7 +51,9 @@ const handleClose = () => {
       setFormValid(event.target.form.checkValidity());
     };
     //
-    
+    const calcPrice = ( totalPrice,selectedCurrency ) => {
+        calculatePriceInCurrency(totalPrice,selectedCurrency)
+    }
     
    
    
@@ -61,7 +63,7 @@ const handleClose = () => {
     reference: (new Date()).getTime(),
     username: `${user.name}`,
     email: `${user.email}`,
-    amount: `${calculatePriceInGHCCurrency(totalPrice,selectedCurrency)*100}`,
+    amount: `${calcPrice*100}`,
     //publicKey: 'pk_live_7818dae2e6cdb971945ad64c97354ea97bc01afb',
     publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
     currency: 'GHS',
