@@ -17,8 +17,9 @@ const Layout = ({children}) => {
             </title>
         </Head>
         <header >
+            <Currency/>
             <Navbar />
-            <Currency />
+            
                
         </header>
         

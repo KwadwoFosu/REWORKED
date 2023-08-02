@@ -12,12 +12,12 @@ const Currency = () => {
   };
 
   return (
-    <div className='text-black h-2'>
+    <div className='text-black bg-gray-200 '>
       <select onChange={handleSelectChange} value={selectedCurrency}>
-        <option value="GHC">GHC</option>
-        <option value='USD'>USD</option>
-        <option value="EUR">EUR</option>
-        <option value="GBP">GBP</option>
+        <option value="GHC">GHC(Currency)</option>
+        <option value='USD'>USD(Currency)</option>
+        <option value="EUR">EUR(Currency)</option>
+        <option value="GBP">GBP(Currency)</option>
       </select>
     </div>
   );

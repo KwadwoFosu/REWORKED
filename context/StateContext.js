@@ -1,10 +1,11 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
+import { client } from '../lib/client';
 
 const Context = createContext();
 
-export const StateContext = ({ children }) => {
+export const StateContext = ({ children,Euro,GBP,USD }) => {
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -26,15 +27,15 @@ export const StateContext = ({ children }) => {
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
     if (currency === 'EUR') {
-      return (price * 0.08).toFixed(2); // Assuming EUR is a predefined conversion rate
+      return (price * Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
     } else if (currency === 'GBP') {
-      return (price * 0.2).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return (price * GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'GHC') {
       return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'USD') {
-      return (price * 0.088).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return (price * USD).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else {
       return price; // Return the original price if no matching currency is found
@@ -192,5 +193,20 @@ export const StateContext = ({ children }) => {
     </Context.Provider>
   )
 }
+export const getServerSideProps = async () => {
+
+  const ratequery = '*[_type== "rate" ]';
+  const rate = await client.fetch(ratequery);
+  const { Euro, GBP, USD } = rate[0];
+  return {
+    props: {
+     
+      rate,
+      Euro,
+       GBP,
+       USD,
+     }
+    }
+ }
 
 export const useStateContext = () => useContext(Context);
