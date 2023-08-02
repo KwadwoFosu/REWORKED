@@ -53,7 +53,7 @@ const handleClose = () => {
     //
     
     
-  const actual = () => {
+  const actual = ({totalPrice,selectedCurrency}) => {
     calculatePriceInGHCCurrency(totalPrice, selectedCurrency)
   } 
    
