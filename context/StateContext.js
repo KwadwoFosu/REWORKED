@@ -25,33 +25,33 @@ export const StateContext = ({ children }) => {
   const calculatePriceInCurrency = ( price,currency) =>{
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
-    if (currency === EUR) {
+    if (currency === 'EUR') {
       return (price * 0.08).toFixed(2); // Assuming EUR is a predefined conversion rate
-    } else if (currency === GBP) {
+    } else if (currency === 'GBP') {
       return (price * 0.2).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
-    else if (currency === GHC) {
+    else if (currency === 'GHC') {
       return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
-    else if (currency === USD) {
+    else if (currency === 'USD') {
       return (price * 0.088).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else {
       return price; // Return the original price if no matching currency is found
     }
   }
-  const calculatePriceInGHCCurrency = ( price,currency) =>{
+  const calculatePriceInGHCCurrency = (price,currency) =>{
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
-    if (currency === EUR) {
+    if (currency === 'EUR') {
       return price/0.08; // Assuming EUR is a predefined conversion rate
-    } else if (currency === GBP) {
+    } else if (currency === 'GBP') {
       return price/0.2; // Assuming GBP is a predefined conversion rate
     }
-    else if (currency === GHC) {
+    else if (currency === 'GHC') {
       return price/1; // Assuming GBP is a predefined conversion rate
     } 
-    else if (currency === USD) {
+    else if (currency === 'USD') {
       return price/0.088; // Assuming GBP is a predefined conversion rate
     } 
     else {
