@@ -28,7 +28,7 @@ const index = ({products} ) => {
      <div>
       <div className='bg-zinc-900 flex flex-row justify-between text-white font-semibold text-[25px]    '>
         <h2 className='font-gen tracking-[2px]'>Products</h2>
-       <Currency /> 
+     
       </div>
 
       

@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import Payment from './Payment'
+import Currency from './Currency'
 
 
 
@@ -17,6 +18,7 @@ const Layout = ({children}) => {
         </Head>
         <header >
             <Navbar />
+            <Currency />
                
         </header>
         
