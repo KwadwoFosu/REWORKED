@@ -28,7 +28,7 @@ const handleClose = () => {
 }
 
 
-    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatePriceInCurrency,calculatePriceInGHCCurrency,setSelectedCurrency} = useStateContext();
+    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatePriceInGHCCurrency} = useStateContext();
     // Local Storage
   
      
@@ -53,7 +53,24 @@ const handleClose = () => {
     //
     
     
-   
+    const calculatePriceInCurrency = ( price,currency) =>{
+      // Perform any necessary calculations or conversions based on the currency here
+      // For simplicity, let's assume the conversion rates are already available
+      if (currency === 'EUR') {
+        return (price * 1.5).toFixed(2); // Assuming EUR is a predefined conversion rate
+      } else if (currency === 'GBP') {
+        return (price * 1.5).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'GHC') {
+        return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'USD') {
+        return (price * 1.5).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else {
+        return price; // Return the original price if no matching currency is found
+      }
+    }
    
    // Paystack to confirm order
     
@@ -61,7 +78,7 @@ const handleClose = () => {
     reference: (new Date()).getTime(),
     username: `${user.name}`,
     email: `${user.email}`,
-    amount: `${totalPrice*100}`,
+    amount: `${calculatePriceInCurrency(totalPrice,selectedCurrency) *100}`,
     //publicKey: 'pk_live_7818dae2e6cdb971945ad64c97354ea97bc01afb',
     publicKey: 'pk_test_1156b935d863b0c6d92a19b3678d034562cf062a',
     currency: 'GHS',

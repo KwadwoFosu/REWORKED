@@ -28,7 +28,7 @@ const Navbar = () => {
   }
   return (
 
-    <div className='items-center  flex-col overflow-hidden'>
+    <div className='items-center  flex-col '>
       <div className='bg-zinc-900 flex  justify-between p-3  text-white'>
         <p className='flex items-center'>
           <TfiMenu className='mx-2 half:hidden' onClick={handleButtonClick} />
