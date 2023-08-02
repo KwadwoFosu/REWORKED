@@ -88,7 +88,7 @@ export const StateContext = ({ children }) => {
   const onAdd = (product, quantity,size,color,selectedCurrency) => {
     const checkProductInCart = cartItems.find((item) => item._id === product._id);
     
-    setTotalPrice((prevTotalPrice) => calculatePriceInCurrency(prevTotalPrice,selectedCurrency) + calculatePriceInCurrency(product.price,selectedCurrency) * quantity);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
     
     if (checkProductInCart) {
@@ -117,7 +117,7 @@ export const StateContext = ({ children }) => {
     foundProduct = cartItems.find((item) => item._id === product._id);
     const newCartItems = cartItems.filter((item) => item._id !== product._id);
 
-    setTotalPrice((prevTotalPrice) => calculatePriceInCurrency(prevTotalPrice,selectedCurrency) - calculatePriceInCurrency(foundProduct.price,selectedCurrency) * foundProduct.quantity);
+    setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity);
     setCartItems(newCartItems);
   };
