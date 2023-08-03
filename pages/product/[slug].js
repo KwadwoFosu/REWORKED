@@ -6,9 +6,28 @@ import { useStateContext } from '../../context/StateContext';
 
 
 
-const ProductDetails = ({ product, products }) => {
-  const {selectedCurrency,calculatePriceInCurrency} = useStateContext();
-  const priceInSelectedCurrency = calculatePriceInCurrency(
+const ProductDetails = ({ product, products,Euro,USD,GBP }) => {
+  
+  const {selectedCurrency} = useStateContext();
+  const calculatePriceInCurrency1 = ( price,currency) =>{
+    // Perform any necessary calculations or conversions based on the currency here
+    // For simplicity, let's assume the conversion rates are already available
+    if (currency === 'EUR') {
+      return (price * Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
+    } else if (currency === 'GBP') {
+      return (price * USD).toFixed(2); // Assuming GBP is a predefined conversion rate
+    }
+    else if (currency === 'GHC') {
+      return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
+    }
+    else if (currency === 'USD') {
+      return (price * GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
+    }
+    else {
+      return price; // Return the original price if no matching currency is found
+    }
+  }
+  const priceInSelectedCurrency = calculatePriceInCurrency1(
     product.price,
     selectedCurrency);
   const { image, name, description, price } = product;
@@ -139,7 +158,7 @@ const ProductDetails = ({ product, products }) => {
         <div className='marquee'>
           <div className='maylike-products-container track'>
             {products.map((item) => (
-              <Product key={item._id} product={item} selectedCurrency={selectedCurrency}  />
+              <Product key={item._id} product={item} selectedCurrency={selectedCurrency} Euro = {Euro} USD = {USD} GBP ={GBP} />
             ))}
           </div>
         </div>
@@ -174,13 +193,19 @@ export const getStaticProps = async ({ params: {slug}}) => {
     const productsQuery = '*[_type == "product"]'
     const product = await client.fetch(query);
     const products = await client.fetch(productsQuery);
+    const ratequery = '*[_type== "rate" ]';
+    const rate = await client.fetch(ratequery);
+    const { Euro, GBP, USD } = rate[0];
    
     
    
     return {
       props: {
         products,
-        product
+        product,
+        Euro, 
+        GBP,
+        USD,
        }
       }
     }

@@ -8,7 +8,8 @@ import { useStateContext } from '../../context/StateContext'
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
-const index = ({products} ) => {
+const index = ({products,Euro,GBP,USD,rate} ) => {
+  {console.log(Euro)}
   const [showFilter, setShowFilter] = useState(false);
   const handleClick = () => {
     setShowFilter(!showFilter);
@@ -38,6 +39,9 @@ const index = ({products} ) => {
           {products.map((product) => <Product  key =
           {product._id} product = {product} 
           selectedCurrency= {selectedCurrency} 
+          Euro = {Euro}
+          GBP = {GBP}
+          USD = {USD}
           />)}
           </div>
        </div>
