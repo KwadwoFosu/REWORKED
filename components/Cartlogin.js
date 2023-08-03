@@ -75,7 +75,7 @@ const handleClose = () => {
         return price; // Return the original price if no matching currency is found
       }
     }
-    const calculatePriceInCurrencyForeign = ( price,currency,{Euro,GBP,USD}) =>{
+    const calculatePriceInCurrencyForeign = ( price,currency,Euro,GBP,USD) =>{
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
@@ -94,7 +94,7 @@ const handleClose = () => {
       }
     }
    // Paystack to confirm order
-   {console.log(Euro)}
+   
     
   const config = {
     reference: (new Date()).getTime(),
@@ -120,7 +120,7 @@ const handleClose = () => {
       ]
     }
 };
- {console.log(calculatePriceInGHCCurrency(totalPrice, 'EUR'))}
+ 
 // you can call this function anything
 const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
@@ -184,7 +184,7 @@ const PaystackHookExample = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4> {selectedCurrency} {calculatePriceInCurrencyForeign(item.price,selectedCurrency)}</h4>
+                  <h4> GHC {calculatePriceInCurrency(item.price,selectedCurrency)}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
