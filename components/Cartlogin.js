@@ -118,7 +118,7 @@ const handleClose = () => {
       ]
     }
 };
- {console.log(calculatePriceInGHCCurrency)}
+ {console.log(calculatePriceInGHCCurrency(totalPrice, 'EUR'))}
 // you can call this function anything
 const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
@@ -252,6 +252,19 @@ const PaystackHookExample = () => {
     </div>
   )
 }
-
+export const getServerSideProps = async () => {
+  const ratequery = '*[_type== "rate" ]';
+  const rate = await client.fetch(ratequery);
+  const { Euro, GBP, USD } = rate[0];
+  return {
+    props: {
+      
+      rate,
+      Euro,
+       GBP,
+       USD,
+     }
+    }
+ }
 
 export default Cartlogin 

@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Cartlogin from './Cartlogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { client } from '../lib/client';
-export default function Index( {Euro,GBP,USD}) {
+
+export default function Index() {
   const { user, error, isLoading } = useUser();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Index( {Euro,GBP,USD}) {
     return (
       <div>
         Welcome {user.name}! 
-        <Cartlogin Euro = {Euro} GBP = {GBP} USD = {USD}/>
+        <Cartlogin />
         <ToastContainer />
       </div>
     );
