@@ -9,7 +9,7 @@ import { useStateContext } from '../../context/StateContext'
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
 const index = ({products,Euro,GBP,USD,rate} ) => {
-  {console.log(Euro)}
+  
   const [showFilter, setShowFilter] = useState(false);
   const handleClick = () => {
     setShowFilter(!showFilter);

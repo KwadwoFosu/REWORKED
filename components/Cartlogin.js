@@ -14,7 +14,8 @@ import { client } from '../lib/client';
 
 
 
-const Cartlogin = ({Euro,USD,GBP}) => {
+
+const Cartlogin = () => {
   
   
   const cartRef = useRef();
@@ -60,21 +61,21 @@ const handleClose = () => {
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
-        return (price * 1.5).toFixed(2); // Assuming EUR is a predefined conversion rate
+        return (price + 120).toFixed(2); // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return (price * 1.5).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price + 120).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return (price * 1.5).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price + 120 ).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else {
         return price; // Return the original price if no matching currency is found
       }
     }
-    const calculatePriceInCurrencyForeign = ( price,currency) =>{
+    const calculatePriceInCurrencyForeign = ( price,currency,{Euro,GBP,USD}) =>{
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
@@ -93,6 +94,7 @@ const handleClose = () => {
       }
     }
    // Paystack to confirm order
+   {console.log(Euro)}
     
   const config = {
     reference: (new Date()).getTime(),
@@ -253,7 +255,7 @@ const PaystackHookExample = () => {
   )
 }
 export const getServerSideProps = async () => {
-  const ratequery = '*[_type== "rate" ]';
+  const ratequery = '*[_type == "rate" ]';
   const rate = await client.fetch(ratequery);
   const { Euro, GBP, USD } = rate[0];
   return {
