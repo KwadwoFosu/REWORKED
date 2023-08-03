@@ -5,7 +5,7 @@ import Cartlogin from './Cartlogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function Index() {
+export default function Index( {Euro,GBP,USD}) {
   const { user, error, isLoading } = useUser();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Index() {
     return (
       <div>
         Welcome {user.name}! 
-        <Cartlogin />
+        <Cartlogin Euro = {Euro} GBP = {GBP} USD = {USD}/>
         <ToastContainer />
       </div>
     );
@@ -34,3 +34,17 @@ export default function Index() {
     </div>
   );
 }
+export const getServerSideProps = async () => {
+  const ratequery = '*[_type== "rate" ]';
+  const rate = await client.fetch(ratequery);
+  const { Euro, GBP, USD } = rate[0];
+  return {
+    props: {
+      
+      rate,
+      Euro,
+       GBP,
+       USD,
+     }
+    }
+ }

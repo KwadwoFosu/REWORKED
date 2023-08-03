@@ -16,6 +16,7 @@ import { client } from '../lib/client';
 
 const Cartlogin = ({Euro,USD,GBP}) => {
   
+  
   const cartRef = useRef();
   const { user } = useUser();
   const [showForm, setShowForm] = useState(false);
@@ -251,19 +252,6 @@ const PaystackHookExample = () => {
     </div>
   )
 }
-export const getServerSideProps = async () => {
-  const ratequery = '*[_type== "rate" ]';
-  const rate = await client.fetch(ratequery);
-  const { Euro, GBP, USD } = rate[0];
-  return {
-    props: {
-      
-      rate,
-      Euro,
-       GBP,
-       USD,
-     }
-    }
- }
+
 
 export default Cartlogin 
