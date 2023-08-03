@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Cartlogin from './Cartlogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { client } from '../lib/client';
 export default function Index( {Euro,GBP,USD}) {
   const { user, error, isLoading } = useUser();
 
