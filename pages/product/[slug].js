@@ -30,7 +30,7 @@ const ProductDetails = ({ product, products,Euro,USD,GBP }) => {
   const priceInSelectedCurrency = calculatePriceInCurrency1(
     product.price,
     selectedCurrency);
-  const { image, name, description, price } = product;
+  const { image, name, description } = product;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd } = useStateContext();
   const [selectedSize, setSelectedSize] = useState('');
