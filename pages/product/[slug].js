@@ -13,15 +13,15 @@ const ProductDetails = ({ product, products,Euro,USD,GBP }) => {
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
     if (currency === 'EUR') {
-      return (price * Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
+      return (price * 0.089).toFixed(2); // Assuming EUR is a predefined conversion rate
     } else if (currency === 'GBP') {
-      return (price * USD).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return (price * 0.081).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'GHC') {
       return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'USD') {
-      return (price * GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return (price * 0.0701).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else {
       return price; // Return the original price if no matching currency is found
@@ -158,7 +158,7 @@ const ProductDetails = ({ product, products,Euro,USD,GBP }) => {
         <div className='marquee'>
           <div className='maylike-products-container track'>
             {products.map((item) => (
-              <Product key={item._id} product={item} selectedCurrency={selectedCurrency} Euro = {Euro} USD = {USD} GBP ={GBP} />
+              <Product key={item._id} product={item} selectedCurrency={selectedCurrency} />
             ))}
           </div>
         </div>
@@ -193,19 +193,12 @@ export const getStaticProps = async ({ params: {slug}}) => {
     const productsQuery = '*[_type == "product"]'
     const product = await client.fetch(query);
     const products = await client.fetch(productsQuery);
-    const ratequery = '*[_type== "rate" ]';
-    const rate = await client.fetch(ratequery);
-    const { Euro, GBP, USD } = rate[0];
-   
-    
-   
+
     return {
       props: {
         products,
         product,
-        Euro, 
-        GBP,
-        USD,
+     
        }
       }
     }
