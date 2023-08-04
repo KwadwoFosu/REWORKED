@@ -180,17 +180,11 @@ const PaystackHookExample = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4> {selectedCurrency} {calculatePriceInCurrencyForeign(item.price,selectedCurrency)}</h4>
+                 {/* <h4> {selectedCurrency} {calculatePriceInCurrencyForeign(item.price,selectedCurrency)}</h4> */}
                 </div>
                 <div className="flex bottom">
                   <div>
-                  {/*<p className="quantity-desc flex items-center">
-                    <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec') }>
-                    <AiOutlineMinus />
-                    </span>
-                    <span className="num" onClick="">{item.quantity}</span>
-                    <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc') }><AiOutlinePlus /></span>
-          </p> */} 
+               
                   <p className="quantity-desc flex items-center">
          <button className="minus border border-gray-300 rounded-full px-2 py-1 mr-1 focus:outline-none" onClick={() => toggleCartItemQuantity(item._id, 'dec')}>
     <svg className="w-4 h-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
@@ -208,7 +202,7 @@ const PaystackHookExample = () => {
                   </div>
                   <button
                     type="button"
-                    className="remove-item"
+                    className="remove-item p-2"
                     onClick={() => onRemove(item,selectedCurrency)}
                   >
                     <TiDeleteOutline />
@@ -230,6 +224,7 @@ const PaystackHookExample = () => {
          
          { showForm && (
           <form className="text-black fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-md rounded-lg p-6">
+            <h1>shipping/Delivery Details</h1>
   <input type="text" placeholder="Name" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Name} onChange={handleInputChange} required />
   <input type="text" placeholder="Phone" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Phone} onChange={handleInputChange} required />
   <input type="text" placeholder="Address" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Address} onChange={handleInputChange} required />
