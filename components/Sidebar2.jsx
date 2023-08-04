@@ -7,7 +7,7 @@ const Sidebar2 = () => {
     { name: 'Jumpsuits', link: '/categories/' },
     { name: 'Blouses', link: '/categories/' },
     { name: 'Skirts', link: '/categories/' },
-    { name: 'Two pieces', link: '/categories/' },
+    { name: 'Two Pieces', link: '/categories/' },
     { name: 'Dresses', link: '/categories/' },
     { name: 'Blazers', link: '/categories/' },
     

@@ -40,19 +40,20 @@ const index = ({ bannerData } ) => {
       </div>
 
       <div className="products-container mx-3 justify-center p-3 bg-[url(/IMG_0173.jpg)]">
-      <div>
-        {testimonialsData.map((testimonial, index) => (
-          <div
-            key={index}
-            className={`${
-              currentIndex === index ? 'animate-fade-in-out' : 'hidden'
-            }`}
-          >
-            <Testimonial imageUrl={testimonial.imageUrl} name={testimonial.name} />
-          </div>
-        ))}
-      </div>
+  {testimonialsData.map((testimonial, index) => (
+    <div
+      key={index}
+      className={`${
+        currentIndex === index
+          ? 'animate-fade-in-out opacity-100'
+          : 'opacity-0 hidden'
+      }`}
+    >
+      <Testimonial imageUrl={testimonial.imageUrl} name={testimonial.name} />
     </div>
+  ))}
+</div>
+
       
 
 

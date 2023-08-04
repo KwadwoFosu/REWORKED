@@ -5,7 +5,7 @@ import { AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useStateContext } from '../context/StateContext';
-import { urlFor,client } from '../lib/client';
+import { urlFor, client } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter} from 'next/router';
 
@@ -250,7 +250,7 @@ const PaystackHookExample = () => {
     </div>
   )
 }
-export const getServerSideProps = async () => {
+{/*export const getServerSideProps = async () => {
   const ratequery = '*[_type == "rate" ]';
   const rate = await client.fetch(ratequery);
   const { Euro, GBP, USD } = rate[0];
@@ -264,6 +264,34 @@ export const getServerSideProps = async () => {
        USD,
      }
     }
- }
+ } */}
+ export const getServerSideProps = async () => {
+  const ratequery = '*[_type == "rate" ]';
+  try {
+    const rate = await client.fetch(ratequery);
+    console.log('Fetched rate:', rate); // Check if rate is fetched correctly
+    const { Euro, GBP, USD } = rate[0];
+
+    return {
+      props: {
+        rate,
+        Euro,
+        GBP,
+        USD,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching rate:', error);
+    return {
+      props: {
+        rate: [],
+        Euro: 0,
+        GBP: 0,
+        USD: 0,
+      },
+    };
+  }
+};
+
 
 export default Cartlogin 

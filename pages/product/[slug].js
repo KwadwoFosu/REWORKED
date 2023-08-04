@@ -6,7 +6,7 @@ import { useStateContext } from '../../context/StateContext';
 
 
 
-const ProductDetails = ({ product, products,Euro,USD,GBP }) => {
+const ProductDetails = ({ product, products }) => {
   
   const {selectedCurrency} = useStateContext();
   const calculatePriceInCurrency1 = ( price,currency) =>{
