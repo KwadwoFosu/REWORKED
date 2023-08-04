@@ -15,7 +15,7 @@ import { client } from '../lib/client';
 
 
 
-const Cartlogin = () => {
+const Cartlogin = ({Euro,GBP,USD}) => {
   
   
   const cartRef = useRef();
@@ -79,15 +79,15 @@ const handleClose = () => {
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
-        return (price * 0.088).toFixed(2); // Assuming EUR is a predefined conversion rate
+        return (price * Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return (price * 0.0701).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price * GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return (price * 0.081).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price * USD).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else {
         return price; // Return the original price if no matching currency is found

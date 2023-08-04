@@ -7,7 +7,7 @@ import { useStateContext } from '../context/StateContext';
 const Product = ({product,Euro,USD,GBP }) => {
   
 
-  const { selectedCurrency,calculatePriceInCurrency} = useStateContext();
+  const { selectedCurrency} = useStateContext();
   const calculatePriceInCurrency1 = ( price,currency) =>{
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
