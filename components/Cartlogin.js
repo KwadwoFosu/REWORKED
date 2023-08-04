@@ -1,17 +1,13 @@
 /* eslint no-use-before-define: 0 */  // --> OFF
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useRef, useState } from 'react';
 import Link from 'next/link';
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useStateContext } from '../context/StateContext';
-import { urlFor } from '../lib/client';
+import { urlFor,client } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter} from 'next/router';
-import { client } from '../lib/client';
-
-
-
 
 
 
@@ -120,7 +116,7 @@ const handleClose = () => {
       ]
     }
 };
- {console.log(calculatePriceInGHCCurrency(totalPrice, 'EUR'))}
+ 
 // you can call this function anything
 const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
