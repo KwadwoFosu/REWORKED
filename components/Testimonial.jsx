@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 
-const Testimonial = ({ imageUrl, name }) => {
+const Testimonial = ({ imageUrl, name, quote }) => {
   return (
     <div className="shadow-lg rounded-lg overflow-hidden h-25 text-center w-[300px] text-white bg-neutral-500 opacity-80 p-4">
       <div className="relative">
@@ -17,8 +17,7 @@ const Testimonial = ({ imageUrl, name }) => {
         </h3>
         <p className="text-sm text-white mt-2">Freelancer</p>
         <p className="text-lg pt-3">
-          Social media can also be used to share interesting facts, true
-          stories, and other important information
+          {quote}
         </p>
         <div className="flex text-black bg-white rounded-xl p-2 justify-center gap-2 mt-2 mx-4">
           <AiFillStar />

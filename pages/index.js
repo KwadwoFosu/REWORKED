@@ -9,10 +9,10 @@ import Testimonial from '../components/Testimonial'
 //import { useUser } from '@auth0/nextjs-auth0/client';
 const index = ({ bannerData } ) => {
   const testimonialsData = [
-    { imageUrl: '/IMG_0173.jpg', name: 'Sarah Dyan' },
-    { imageUrl: '/12.jpg', name: 'Jasmine Alesa' },
-    { imageUrl: '/13.jpg', name: 'Chrisitne Mills' },
-    { imageUrl: '/IMG_0258.jpg', name: "Clara Mimie" },
+    { imageUrl: '/IMG_0173.jpg', name: 'Sarah Dyan', quote: "Hey I'm Sarah Dyan" },
+    { imageUrl: '/12.jpg', name: 'Jasmine Alesa',quote: "Hey I'm Jasmine Alesa" },
+    { imageUrl: '/13.jpg', name: 'Chrisitne Mills', quote: "Hey I'm Christine"},
+    { imageUrl: '/IMG_0258.jpg', name: "Clara Mimie", quote: "Hey I'm Clara Mimie" },
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -21,7 +21,7 @@ const index = ({ bannerData } ) => {
       setCurrentIndex((prevIndex) =>
         prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1
       );
-    }, 40000); 
+    }, 45000); 
 
     return () => clearInterval(interval);
   }, []);
@@ -39,17 +39,17 @@ const index = ({ bannerData } ) => {
       
       </div>
 
-      <div className="products-container mx-3 justify-center p-3 bg-[url(/IMG_0173.jpg)]">
+      <div className="products-container mx-auto w-[400px] justify-center p-3 bg-[url(/IMG_0173.jpg)]">
   {testimonialsData.map((testimonial, index) => (
     <div
       key={index}
       className={`${
         currentIndex === index
           ? 'animate-fade-in-out opacity-100'
-          : 'opacity-0 hidden'
+          : 'hidden'
       }`}
     >
-      <Testimonial imageUrl={testimonial.imageUrl} name={testimonial.name} />
+      <Testimonial imageUrl={testimonial.imageUrl} name={testimonial.name} quote = {testimonial.quote} />
     </div>
   ))}
 </div>

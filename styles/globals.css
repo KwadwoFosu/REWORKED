@@ -123,10 +123,8 @@ width: 100%;
 }
 /* testimonialAnimation.css */
 @keyframes fade-in-out {
-  0% { opacity: 0; }
-  25% { opacity: 1; }
-  75% { opacity: 1; }
-  100% { opacity: 0; }
+  25% { opacity: 0; }
+ 
 }
 
 .animate-fade-in-out {
