@@ -14,13 +14,13 @@ const Product = ({product,Euro,USD,GBP }) => {
     if (currency === 'EUR') {
       return ({(price+120) * Euro}).toFixed(2); // Assuming EUR is a predefined conversion rate
     } else if (currency === 'GBP') {
-      return ({(price+120) * USD}).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return ({price+120} * USD).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'GHC') {
       return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'USD') {
-      return ({(price+120) * GBP}).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return ({price+120} * GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else {
       return price; // Return the original price if no matching currency is found
