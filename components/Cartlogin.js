@@ -57,15 +57,15 @@ const handleClose = () => {
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
-        return (price + 120).toFixed(2); // Assuming EUR is a predefined conversion rate
+        return (price + (120*totalQuantities)).toFixed(2); // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return (price + 120).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price + (120*totalQuantities)).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return (price + 120 ).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price + (120* totalQuantities)).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else {
         return price; // Return the original price if no matching currency is found
