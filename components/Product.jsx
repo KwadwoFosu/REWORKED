@@ -4,7 +4,7 @@ import { urlFor } from '../lib/client'
 import { useStateContext } from '../context/StateContext';
 
 
-const Product = ({product,Euro,USD,GBP }) => {
+const Product = ({product,Euro,USD,GBP,selectedCurrency }) => {
   
 
   const { selectedCurrency} = useStateContext();
