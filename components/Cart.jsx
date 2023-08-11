@@ -34,17 +34,3 @@ export default function Index() {
     </div>
   );
 }
-export const getServerSideProps = async () => {
-  const ratequery = '*[_type== "rate" ]';
-  const rate = await client.fetch(ratequery);
-  const { Euro, GBP, USD } = rate[0];
-  return {
-    props: {
-      
-      rate,
-      Euro,
-       GBP,
-       USD,
-     }
-    }
- }

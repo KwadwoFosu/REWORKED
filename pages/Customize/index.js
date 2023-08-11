@@ -1,15 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
-import { Herobanner, Product,Sidebar } from '../../components/index'
+import { Herobanner, Product } from '../../components/index'
 import { client } from '../../lib/client'
-import Currency from '../../components/Currency'
 import { useStateContext } from '../../context/StateContext'
 
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
-const index = ({products,Euro,GBP,USD,rate} ) => {
-  
+const index = ({products} ) => {
+ 
   const [showFilter, setShowFilter] = useState(false);
   const handleClick = () => {
     setShowFilter(!showFilter);
@@ -39,9 +38,7 @@ const index = ({products,Euro,GBP,USD,rate} ) => {
           {products.map((product) => <Product  key =
           {product._id} product = {product} 
           selectedCurrency= {selectedCurrency} 
-          Euro = {Euro}
-          GBP = {GBP}
-          USD = {USD}
+          
           />)}
           </div>
        </div>

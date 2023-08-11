@@ -4,10 +4,17 @@ import { client } from '../lib/client'
 import Landing from '../components/Landing'
 import ImageCard from '../components/ImageCard'
 import Testimonial from '../components/Testimonial'
+import { useCurrencyContext } from '../context/currencyContext'
 //if banner data is available ln7 then parse the first element as a prop to herobanner instead
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
-const index = ({ bannerData } ) => {
+const index = ({ bannerData,Euro,USD,GBP } ) => {
+  const { setRates } = useCurrencyContext();
+
+  // Set currency rates in the context
+  useEffect(() => {
+    setRates({ Euro, GBP, USD });
+  }, [Euro, GBP, USD]);
   const testimonialsData = [
     { imageUrl: '/IMG_0173.jpg', name: 'Sarah Dyan', quote: "Hey I'm Sarah Dyan" },
     { imageUrl: '/12.jpg', name: 'Jasmine Alesa',quote: "Hey I'm Jasmine Alesa" },
@@ -72,11 +79,16 @@ const index = ({ bannerData } ) => {
 export const getServerSideProps = async () => {
   const bannerquery = '*[_type== "banner" ]';
  const bannerData = await client.fetch(bannerquery);
-
+ const ratequery = '*[_type== "rate" ]';
+ const rate = await client.fetch(ratequery);
+ const { Euro, GBP, USD } = rate[0];
  return {
    props: {
      bannerData,
-     
+     rate,
+     Euro,
+      GBP,
+      USD,
     }
    }
 }

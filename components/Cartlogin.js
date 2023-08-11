@@ -8,12 +8,14 @@ import { useStateContext } from '../context/StateContext';
 import { urlFor, client } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter} from 'next/router';
+import { useCurrencyContext } from '../context/currencyContext';
 
 
 
-const Cartlogin = ({Euro,GBP,USD}) => {
+const Cartlogin = () => {
   
-  
+  const { currencyRates } = useCurrencyContext();
+
   const cartRef = useRef();
   const { user } = useUser();
   const [showForm, setShowForm] = useState(false);
@@ -75,15 +77,15 @@ const handleClose = () => {
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
-        return (price * Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
+        return (price * currencyRates.Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return (price * GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return (price * USD).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price * currencyRates.USD).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else {
         return price; // Return the original price if no matching currency is found
@@ -180,7 +182,7 @@ const PaystackHookExample = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                 {/* <h4> {selectedCurrency} {calculatePriceInCurrencyForeign(item.price,selectedCurrency)}</h4> */}
+                  <h4> {selectedCurrency} {calculatePriceInCurrencyForeign(item.price,selectedCurrency)}</h4> 
                 </div>
                 <div className="flex bottom">
                   <div>
@@ -260,33 +262,7 @@ const PaystackHookExample = () => {
      }
     }
  } */}
- export const getServerSideProps = async () => {
-  const ratequery = '*[_type == "rate" ]';
-  try {
-    const rate = await client.fetch(ratequery);
-    console.log('Fetched rate:', rate); // Check if rate is fetched correctly
-    const { Euro, GBP, USD } = rate[0];
 
-    return {
-      props: {
-        rate,
-        Euro,
-        GBP,
-        USD,
-      },
-    };
-  } catch (error) {
-    console.error('Error fetching rate:', error);
-    return {
-      props: {
-        rate: [],
-        Euro: 0,
-        GBP: 0,
-        USD: 0,
-      },
-    };
-  }
-};
 
 
 export default Cartlogin 

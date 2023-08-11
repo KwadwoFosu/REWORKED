@@ -3,25 +3,26 @@ import { client, urlFor } from '../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
-
+import { useCurrencyContext } from '../../context/currencyContext';
 
 
 const ProductDetails = ({ product, products }) => {
+  const { currencyRates } = useCurrencyContext();
   
   const {selectedCurrency} = useStateContext();
   const calculatePriceInCurrency1 = ( price,currency) =>{
     // Perform any necessary calculations or conversions based on the currency here
     // For simplicity, let's assume the conversion rates are already available
     if (currency === 'EUR') {
-      return (price * 0.089).toFixed(2); // Assuming EUR is a predefined conversion rate
+      return ((price+120) * currencyRates.Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
     } else if (currency === 'GBP') {
-      return (price * 0.081).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return ((price+120) * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'GHC') {
       return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'USD') {
-      return (price * 0.0701).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return ((price + 120) * currencyRates.USD).toFixed(2); // Assuming GBP is a predefined conversion rate
     }
     else {
       return price; // Return the original price if no matching currency is found
