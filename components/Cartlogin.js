@@ -77,15 +77,15 @@ const handleClose = () => {
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
-        return (price * currencyRates.Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
+        return ( (price+120) * currencyRates.Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return (price * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return ((price +120) * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return (price * currencyRates.USD).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return ((price+120) * currencyRates.USD).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else {
         return price; // Return the original price if no matching currency is found
@@ -226,6 +226,8 @@ const PaystackHookExample = () => {
          
          { showForm && (
           <form className="text-black fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-md rounded-lg p-6">
+            
+            <p>Subtotal: {selectedCurrency} {calculatePriceInCurrencyForeign(totalPrice,selectedCurrency)}</p>
             <h1>shipping/Delivery Details</h1>
   <input type="text" placeholder="Name" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Name} onChange={handleInputChange} required />
   <input type="text" placeholder="Phone" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Phone} onChange={handleInputChange} required />
