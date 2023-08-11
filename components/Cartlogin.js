@@ -97,7 +97,7 @@ const handleClose = () => {
       if (currency === 'EUR') {
         return ( (price+(120*totalQuantities)) * currencyRates.Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return ((price)+(120 * totalQuantities) * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return ((price+(120 * totalQuantities)) * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price).toFixed(2); // Assuming GBP is a predefined conversion rate
