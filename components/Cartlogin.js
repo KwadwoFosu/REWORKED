@@ -91,6 +91,24 @@ const handleClose = () => {
         return price; // Return the original price if no matching currency is found
       }
     }
+    const calculatePriceInCurrencyForeign1 = ( price,currency) =>{
+      // Perform any necessary calculations or conversions based on the currency here
+      // For simplicity, let's assume the conversion rates are already available
+      if (currency === 'EUR') {
+        return ( ((price)+(120*totalQuantities)) * currencyRates.Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
+      } else if (currency === 'GBP') {
+        return ((price) +(120 * totalQuantities) * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'GHC') {
+        return ((price) * 1)*(totalQuantities).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'USD') {
+        return (((price)+(120*totalQuantities)) * currencyRates.USD).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else {
+        return price; // Return the original price if no matching currency is found
+      }
+    }
    // Paystack to confirm order
    
     
@@ -227,7 +245,7 @@ const PaystackHookExample = () => {
          { showForm && (
           <form className="text-black fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-md rounded-lg p-6">
             
-            <p>Subtotal: {selectedCurrency} {calculatePriceInCurrencyForeign(totalPrice,selectedCurrency)}</p>
+            <p>Subtotal: {selectedCurrency} {calculatePriceInCurrencyForeign1(totalPrice,selectedCurrency)}</p>
             <h1>shipping/Delivery Details</h1>
   <input type="text" placeholder="Name" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Name} onChange={handleInputChange} required />
   <input type="text" placeholder="Phone" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Phone} onChange={handleInputChange} required />
