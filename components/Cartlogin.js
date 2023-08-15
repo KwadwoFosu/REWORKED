@@ -175,12 +175,33 @@ const handleClose = () => {
 };
  
 // you can call this function anything
-const onSuccess = (reference) => {
+const onSuccess = async(reference) => {
   // Implementation for whatever you want to do with reference and after success call.
   
-  
-   clearCart();
-router.push('/Customize')
+  const orderData = {
+    referenceNumber: reference,
+    cartItems: cartItems,
+    shippingDetails: {
+      name: shippingDetails.Name,
+      phone: shippingDetails.Phone,
+      address: shippingDetails.Address,
+    },
+    stage: 'Order Confirmed', // Set the initial stage
+  };
+
+  try {
+    await client.create({
+      _type: 'order', // Replace with the actual Sanity document type for orders
+      ...orderData,
+    });
+
+    clearCart();
+    router.push('/Customize');
+  } catch (error) {
+    console.error('Error creating order:', error);
+  }
+  {/* clearCart();
+router.push('/Customize') */}
 };
 
 // you can call this function anything
