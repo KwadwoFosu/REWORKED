@@ -194,8 +194,8 @@ const onSuccess = async(reference) => {
   } catch (error) {
     console.error('Error creating order:', error);
   }
- {/*  clearCart();
-router.push('/Customize'); */}
+   clearCart();
+router.push('/Customize')
 };
 
 // you can call this function anything
