@@ -177,8 +177,7 @@ const handleClose = () => {
 // you can call this function anything
 const onSuccess = async(reference) => {
   // Implementation for whatever you want to do with reference and after success call.
-  clearCart();
-  router.push('/Customize');
+  
   const orderData = {
     referenceNumber: reference,
     cartItems: cartItems,
