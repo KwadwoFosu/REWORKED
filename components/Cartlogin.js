@@ -30,8 +30,8 @@ const handleClose = () => {
 }
 
 
-    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency,calculatePriceInGHCCurrency} = useStateContext();
-    // Local Storage
+    const { totalPrice, totalQuantities, cartItems,setShowCart,toggleCartItemQuantity, onRemove,clearCart,selectedCurrency} = useStateContext();
+    
   
      
     const [shippingDetails, setShippingDetails] = useState({
@@ -91,6 +91,7 @@ const handleClose = () => {
         return price; // Return the original price if no matching currency is found
       }
     }
+
     const calculatePriceInCurrencyForeign1 = ( price,currency) =>{
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
@@ -104,6 +105,42 @@ const handleClose = () => {
       }
       else if (currency === 'USD') {
         return (((price)+(120*totalQuantities)) * currencyRates.USD).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else {
+        return price; // Return the original price if no matching currency is found
+      }
+    }
+    const calculatePriceInCurrencyForeign2 = ( price,currency) =>{
+      // Perform any necessary calculations or conversions based on the currency here
+      // For simplicity, let's assume the conversion rates are already available
+      if (currency === 'EUR') {
+        return ( (price+(120*totalQuantities)+(45*currencyRates.USD)) * currencyRates.Euro).toFixed(2); // Assuming EUR is a predefined conversion rate
+      } else if (currency === 'GBP') {
+        return ((price+(120 * totalQuantities)+(45*currencyRates.USD)) * currencyRates.GBP).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'GHC') {
+        return (price).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'USD') {
+        return (((price)+(120*totalQuantities)+(45*currencyRates.USD)) * currencyRates.USD).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else {
+        return price; // Return the original price if no matching currency is found
+      }
+    }
+    const delivery = ( currency) =>{
+      // Perform any necessary calculations or conversions based on the currency here
+      // For simplicity, let's assume the conversion rates are already available
+      if (currency === 'EUR') {
+        return '45' // Assuming EUR is a predefined conversion rate
+      } else if (currency === 'GBP') {
+        return '45' // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'GHC') {
+        return 'Pay On Delivery' // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'USD') {
+        return '45' // Assuming GBP is a predefined conversion rate
       }
       else {
         return price; // Return the original price if no matching currency is found
@@ -140,9 +177,22 @@ const handleClose = () => {
 // you can call this function anything
 const onSuccess = (reference) => {
   // Implementation for whatever you want to do with reference and after success call.
+  
+  const orderData = {
+    referenceNumber: reference,
+    cartItems: cartItems,
+    shippingDetails: shippingDetails, // Include any other relevant data here
+  };
 
-   clearCart();
-router.push('/Customize');
+  // Use the Sanity client to create the order document
+  client.create('order', orderData)
+    .then(() => {
+      clearCart();
+      router.push('/Customize');
+    })
+    .catch(error => {
+      console.error('Error creating order:', error);
+    });
 };
 
 // you can call this function anything
@@ -235,8 +285,7 @@ const PaystackHookExample = () => {
         {cartItems.length >= 1 && (
           <div className="cart-bottom">
             <div className="total">
-              <h3>Subtotal:</h3>
-              <h3> {selectedCurrency} {totalPrice}</h3>
+             
             </div>
         <div className='btn-container'>
          <div > 
@@ -244,16 +293,26 @@ const PaystackHookExample = () => {
          
          { showForm && (
           <form className="text-black fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-md rounded-lg p-6">
-            
-            <p>Subtotal: {selectedCurrency} {calculatePriceInCurrencyForeign1(totalPrice,selectedCurrency)}</p>
-            <h1>shipping/Delivery Details</h1>
+             <div className="items-center flex justify-between">
+    
+    <strong>CHECKOUT</strong>
+    <div className="text-right">
+    <TiDeleteOutline onClick={handleClose} size={40} className="cursor-pointer"/>
+    </div>
+  </div>
+
+  <br/>
+  <p>Total : {selectedCurrency} {calculatePriceInCurrencyForeign1(totalPrice,selectedCurrency)}</p>
+  <p> Delivery Fee : {delivery(selectedCurrency)}</p>
+  <p>Subtotal: {selectedCurrency} {calculatePriceInCurrencyForeign2(totalPrice,selectedCurrency)}</p>
+  <br />
+  <strong>SHIPPING/DELIVERY DETAILS</strong>
+      
   <input type="text" placeholder="Name" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Name} onChange={handleInputChange} required />
   <input type="text" placeholder="Phone" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Phone} onChange={handleInputChange} required />
   <input type="text" placeholder="Address" className="mb-4 w-full px-4 py-2 border border-gray-300 rounded" value={shippingDetails.Address} onChange={handleInputChange} required />
   {formValid && <PaystackHookExample />}
-  <div className="text-right">
-    <TiDeleteOutline onClick={handleClose} size={40} className="cursor-pointer" />
-  </div>
+  
 </form> 
 
 )}
@@ -267,21 +326,7 @@ const PaystackHookExample = () => {
     </div>
   )
 }
-{/*export const getServerSideProps = async () => {
-  const ratequery = '*[_type == "rate" ]';
-  const rate = await client.fetch(ratequery);
-  const { Euro, GBP, USD } = rate[0];
 
-  return {
-    props: {
-      
-      rate,
-      Euro,
-       GBP,
-       USD,
-     }
-    }
- } */}
 
 
 

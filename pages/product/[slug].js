@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { client, urlFor } from '../../lib/client';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { Product } from '../../components';
@@ -7,7 +7,14 @@ import { useCurrencyContext } from '../../context/currencyContext';
 
 
 const ProductDetails = ({ product, products }) => {
-  const { currencyRates } = useCurrencyContext();
+  const { currencyRates,setRates } = useCurrencyContext();
+  useEffect(() => {
+    // Load currencyRates from Local Storage if available
+    const storedCurrencyRates = JSON.parse(localStorage.getItem('currencyRates'));
+    if (storedCurrencyRates) {
+      setRates(storedCurrencyRates);
+    }
+  }, []);
   
   const {selectedCurrency} = useStateContext();
   const calculatePriceInCurrency1 = ( price,currency) =>{

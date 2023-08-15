@@ -5,7 +5,7 @@ import Landing from '../components/Landing'
 import ImageCard from '../components/ImageCard'
 import Testimonial from '../components/Testimonial'
 import { useCurrencyContext } from '../context/currencyContext'
-//if banner data is available ln7 then parse the first element as a prop to herobanner instead
+
 
 //import { useUser } from '@auth0/nextjs-auth0/client';
 const index = ({ bannerData,Euro,USD,GBP } ) => {
