@@ -186,7 +186,7 @@ const onSuccess = async(reference) => {
   };
 
   try {
-    await sanityClient.create({
+    await client.create({
       _type: 'order', // Replace with the actual Sanity document type for orders
       ...orderData,
     });
