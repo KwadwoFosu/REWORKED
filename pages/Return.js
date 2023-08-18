@@ -5,10 +5,9 @@ const Return = () => {
     <div className='mb-10 half:mb-[100px]'>
          <div className='mx-3'>
             <h2 className='products-heading1 font-bold text-[30px] text-zinc-500'>Return Policy</h2>
-            <p>
-            Return policy 
+            <p> 
 Thank you for your purchase, we hope you are satisfied with your items. If not, items can be returned within 7-14 working days upon receipt. 
-The store reserves the right to either replace completely refund or offer store credits based on condition of the item. 
+The store reserves the right to either replace completely, refund or offer store credits based on condition of the item. 
 Items must be retuned in great shape if not original state.
 <br/>
 <br/>
