@@ -58,18 +58,18 @@ const handleClose = () => {
     const calculatePriceInCurrency = ( price,currency) =>{
      
       if (currency === 'EUR') {
-        return (price + (120*totalQuantities) + (45 / currencyRates.USD)).toFixed(); 
+        return (price + (120*totalQuantities) +(45/currencyRates.USD)).toFixed(); 
       } else if (currency === 'GBP') {
-        return (price + (120*totalQuantities) + (45 / currencyRates.USD)).toFixed(); // Assuming GBP is a predefined conversion rate
+        return (price + (120*totalQuantities) +(45/currencyRates.USD)).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price * 1).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return (price + (120* totalQuantities) + (45 / currencyRates.USD)).toFixed(); 
+        return (price + (120* totalQuantities) +(45/currencyRates.USD)).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else {
-        return price; 
+        return price; // Return the original price if no matching currency is found
       }
     }
     const calculatePriceInCurrencyForeign = ( price,currency) =>{
@@ -81,7 +81,7 @@ const handleClose = () => {
         return ((price +120) * currencyRates.GBP).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
-        return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price * 1).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
         return ((price+120) * currencyRates.USD).toFixed(); // Assuming GBP is a predefined conversion rate
@@ -95,27 +95,9 @@ const handleClose = () => {
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
-        return ( (price+(120*totalQuantities))).toFixed(); // Assuming EUR is a predefined conversion rate
+        return ( (price+(120*totalQuantities)) * currencyRates.Euro).toFixed(); // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return ((price+(120 * totalQuantities)) ).toFixed(); // Assuming GBP is a predefined conversion rate
-      }
-      else if (currency === 'GHC') {
-        return (price).toFixed(2); // Assuming GBP is a predefined conversion rate
-      }
-      else if (currency === 'USD') {
-        return (((price)+(120*totalQuantities))).toFixed(); // Assuming GBP is a predefined conversion rate
-      }
-      else {
-        return price; // Return the original price if no matching currency is found
-      }
-    }
-    const calculatePriceInCurrencyForeign2 = ( price,currency) =>{
-      // Perform any necessary calculations or conversions based on the currency here
-      // For simplicity, let's assume the conversion rates are already available
-      if (currency === 'EUR') {
-        return ( (price+(120*totalQuantities)) * currencyRates.Euro ).toFixed(); // Assuming EUR is a predefined conversion rate
-      } else if (currency === 'GBP') {
-        return ((price+(120 * totalQuantities)) * currencyRates.GBP ).toFixed(); // Assuming GBP is a predefined conversion rate
+        return ((price+(120 * totalQuantities)) * currencyRates.GBP).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return (price).toFixed(); // Assuming GBP is a predefined conversion rate
@@ -127,19 +109,37 @@ const handleClose = () => {
         return price; // Return the original price if no matching currency is found
       }
     }
+    const calculatePriceInCurrencyForeign2 = ( price,currency) =>{
+      // Perform any necessary calculations or conversions based on the currency here
+      // For simplicity, let's assume the conversion rates are already available
+      if (currency === 'EUR') {
+        return ( (price+(120*totalQuantities)) * currencyRates.Euro).toFixed(); // Assuming EUR is a predefined conversion rate
+      } else if (currency === 'GBP') {
+        return ((price+(120 * totalQuantities)) * currencyRates.GBP ).toFixed(); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'GHC') {
+        return (price).toFixed(2); // Assuming GBP is a predefined conversion rate
+      }
+      else if (currency === 'USD') {
+        return (((price)+(120*totalQuantities)) * currencyRates.USD ).toFixed(); // Assuming GBP is a predefined conversion rate
+      }
+      else {
+        return price; // Return the original price if no matching currency is found
+      }
+    }
     const delivery = ( currency) =>{
       // Perform any necessary calculations or conversions based on the currency here
       // For simplicity, let's assume the conversion rates are already available
       if (currency === 'EUR') {
-        return 'USD 45 (Via DHL)' // Assuming EUR is a predefined conversion rate
+        return 'USD 45' // Assuming EUR is a predefined conversion rate
       } else if (currency === 'GBP') {
-        return ' USD 45 (Via DHL)' // Assuming GBP is a predefined conversion rate
+        return 'USD 45' // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
         return 'Pay On Delivery' // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return 'USD 45 (Via DHL)' // Assuming GBP is a predefined conversion rate
+        return 'USD 45' // Assuming GBP is a predefined conversion rate
       }
       else {
         return price; // Return the original price if no matching currency is found
