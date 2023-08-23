@@ -118,7 +118,7 @@ const handleClose = () => {
         return ((price+(120 * totalQuantities)) * currencyRates.GBP ).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'GHC') {
-        return (price).toFixed(2); // Assuming GBP is a predefined conversion rate
+        return (price).toFixed(); // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
         return (((price)+(120*totalQuantities)) * currencyRates.USD ).toFixed(); // Assuming GBP is a predefined conversion rate
@@ -139,13 +139,13 @@ const handleClose = () => {
         return 'Pay On Delivery' // Assuming GBP is a predefined conversion rate
       }
       else if (currency === 'USD') {
-        return 'USD 45' // Assuming GBP is a predefined conversion rate
+        return 'USD 45' 
       }
       else {
-        return price; // Return the original price if no matching currency is found
+        return price; 
       }
     }
-   // Paystack to confirm order
+   
    
     
   const config = {
@@ -173,16 +173,15 @@ const handleClose = () => {
     }
 };
  
-// you can call this function anything
+
 const onSuccess = (reference) => {
-  // Implementation for whatever you want to do with reference and after success call. 
+  
   clearCart();
 router.push('/Customize') 
 };
 
-// you can call this function anything
 const onClose = () => {
-  // implementation for  whatever you want to do when the Paystack dialog closed.
+  
  
   console.log(reference);
 
@@ -289,7 +288,7 @@ const PaystackHookExample = () => {
   <br/>
   <p>Total : {selectedCurrency} {calculatePriceInCurrencyForeign1(totalPrice,selectedCurrency)}</p>
   <p> Delivery Fee : {delivery(selectedCurrency)}</p>
-  <p>Subtotal: {selectedCurrency} {calculatePriceInCurrencyForeign2(totalPrice,selectedCurrency)}</p>
+  
   <br />
   <strong>SHIPPING/DELIVERY DETAILS</strong>
       
