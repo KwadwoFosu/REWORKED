@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiFillInstagram, AiOutlineWhatsApp,AiFillFacebook} from 'react-icons/ai';
 import { FaSnapchat} from 'react-icons/fa';
-import { useState } from 'react';
 
 const Sidebar1 = ({ onClose }) => {
   const categories = [
