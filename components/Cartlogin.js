@@ -202,8 +202,8 @@ const PaystackHookExample = () => {
 
  
   return (
-    <div className="fixed top-0 left-0 w-64 h-screen bg-white" ref={cartRef}>
-      <div >
+    <div className="cart-wrapper" ref={cartRef}>
+      <div className='cart-container'>
         <button
         type="button"
         className="cart-heading"
