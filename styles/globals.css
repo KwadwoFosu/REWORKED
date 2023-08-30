@@ -382,7 +382,7 @@ text-align:left;
 .cart-wrapper{
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 100;
@@ -396,7 +396,7 @@ text-align:left;
   background-color: white;
   float: right;
   padding: 40px 10px;
-  position: relative;
+  position: absolute;
   
 }
 
