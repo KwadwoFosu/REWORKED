@@ -5,7 +5,7 @@ import { AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
 import { TiDeleteOutline } from 'react-icons/ti';
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { useStateContext } from '../context/StateContext';
-import { urlFor, client } from '../lib/client';
+import { urlFor } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter} from 'next/router';
 import { useCurrencyContext } from '../context/currencyContext';
@@ -58,6 +58,7 @@ const handleClose = () => {
     const calculatePriceInCurrency = ( price,currency) =>{
      
       if (currency === 'EUR') {
+
         return (price + (120*totalQuantities) +(45/currencyRates.USD)).toFixed(); 
       } else if (currency === 'GBP') {
         return (price + (120*totalQuantities) +(45/currencyRates.USD)).toFixed(); // Assuming GBP is a predefined conversion rate
@@ -201,7 +202,7 @@ const PaystackHookExample = () => {
 
  
   return (
-    <div className="cart-wrapper" ref={cartRef}>
+    <div className="fixed top-0 left-0 w-64 h-screen bg-white" ref={cartRef}>
       <div className="cart-container">
         <button
         type="button"
