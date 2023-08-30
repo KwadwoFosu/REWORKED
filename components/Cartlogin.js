@@ -9,7 +9,8 @@ import { urlFor, client } from '../lib/client';
 import { usePaystackPayment } from 'react-paystack';
 import { useRouter} from 'next/router';
 import { useCurrencyContext } from '../context/currencyContext';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Cartlogin = () => {
@@ -175,9 +176,27 @@ const handleClose = () => {
  
 
 const onSuccess = (reference) => {
-  
   clearCart();
-router.push('/Customize') 
+  router.push('/Customize');
+  
+  // Show a success toast
+  toast.success(
+    <div>
+      <strong>Thank You for Your Purchase!</strong>
+      <p>
+        Thank you for shopping with us! Your order is currently being processed
+        with reference number {reference}. Once confirmed, an email will be sent to you containing tracking information to
+        keep you updated on your order's
+        progress. We appreciate your business and look forward to serving you again.
+      </p>
+    </div>,
+    {
+      position: 'top-right', // You can adjust the position as needed
+      autoClose: 5000, // How long the toast will be displayed (in milliseconds)
+      closeOnClick: true,
+      pauseOnHover: true,
+    }
+  );
 };
 
 const onClose = () => {

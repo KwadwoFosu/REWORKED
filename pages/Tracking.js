@@ -66,16 +66,7 @@ const Tracking = () => {
             <span className='font-semibold'>Phone: {fetchedOrder.shippingDetails.phone}</span>
           </li>
         </ul>
-        <h3 className='text-md font-semibold mt-3'>Cart Items:</h3>
-        <ul className='list-disc pl-6 '>
-          {fetchedOrder.cartItems.map((item) => (
-            <li className='flex flex-col' key={item._key}>
-              <span className='font-semibold'>Products: {item.productName},{' '}</span>
-              <span className='font-semibold'>Quantity:{item.quantity},{' '}</span> 
-              <span className='font-semibold'>Price: {item.price}</span>
-            </li>
-          ))}
-        </ul>
+       
       </div>
       
       )}

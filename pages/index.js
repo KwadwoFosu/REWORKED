@@ -46,7 +46,7 @@ const index = ({ bannerData,Euro,USD,GBP } ) => {
       
       </div>
 
-      <div className="products-container mx-auto w-[400px] justify-center p-3 bg-[url(/IMG_0173.jpg)]">
+      {/*<div className="products-container mx-auto w-[400px] justify-center p-3 bg-[url(/IMG_0173.jpg)]">
   {testimonialsData.map((testimonial, index) => (
     <div
       key={index}
