@@ -177,6 +177,7 @@ const handleClose = () => {
 const onSuccess = (reference) => {
   
   clearCart();
+  setShowCart(false);
 router.push('/Success') 
 };
 
