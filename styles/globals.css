@@ -391,7 +391,7 @@ text-align:left;
 
 }
 .cart-container{
-  height: 100vh;
+  height: 100%;
   width: 600px;
   background-color: white;
   float: right;
