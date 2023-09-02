@@ -367,6 +367,8 @@ text-align:left;
   position: fixed;
   right: 0;
   top: 0;
+  bottom:0;
+  height : 100%;
   z-index: 100;
   /* will-change: transform; */
   transition: all 1s ease-in-out;
@@ -379,7 +381,7 @@ text-align:left;
   float: right;
   padding: 40px 10px;
   position: relative;
-  bottom:0;
+  
   
 }
 
