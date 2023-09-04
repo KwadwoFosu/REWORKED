@@ -26,7 +26,7 @@ const ProductDetails = ({ product, products }) => {
       return ((price+120) * currencyRates.GBP).toFixed(); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'GHC') {
-      return (price * 1).toFixed(2); // Assuming GBP is a predefined conversion rate
+      return (price * 1).toFixed(); // Assuming GBP is a predefined conversion rate
     }
     else if (currency === 'USD') {
       return ((price + 120) * currencyRates.USD).toFixed(); // Assuming GBP is a predefined conversion rate
