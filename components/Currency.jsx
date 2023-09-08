@@ -12,7 +12,7 @@ const Currency = () => {
   };
 
   return (
-    <div className='text-black bg-gray-200 '>
+    <div className='text-black bg-gray-200 font-bold text-lg '>
       <select onChange={handleSelectChange} value={selectedCurrency}>
         <option value="GHC">GHC(Currency)</option>
         <option value='USD'>USD(Currency)</option>
