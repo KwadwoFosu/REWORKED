@@ -34,11 +34,19 @@ const SearchPage = ({ products }) => {
   );
 };
 
+{/*export const getServerSideProps = async (context) => {
+  const searchQuery = context.query.q || "";
+  const query = `*[_type == "product" && (name match "${searchQuery}*" || category match "${searchQuery}*" || price == ${searchQuery} || description match "${searchQuery}*")]`;
+*/}
 export const getServerSideProps = async (context) => {
   const searchQuery = context.query.q || "";
-  const searchWords = searchQuery.split(" ");
-  const query = `*[_type == "product" && (name match "${searchWords}*" || category match "${searchWords}*" || price == ${searchWords} || description match "${searchWords}*")]`;
+  const searchWords = searchQuery.split(" "); // Split search query into individual words
 
+  // Construct a query that matches any of the words in the fields
+  const query = `*[_type == "product" && (${searchWords
+    .map((word) => `name match "${word}*" || category match "${word}*" || price == ${word} || description match "${word}*"
+    `)
+    .join("||")})]`;
 
 
   const products = await client.fetch(query);
