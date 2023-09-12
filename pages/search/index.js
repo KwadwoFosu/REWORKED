@@ -36,7 +36,7 @@ const SearchPage = ({ products }) => {
 
 export const getServerSideProps = async (context) => {
   const searchQuery = context.query.q || "";
-  const query = `*[_type == "product" && (name match "${encodedSearchQuery}*" || category match "${encodedSearchQuery}*" || price == ${encodedSearchQuery} || description match "${encodedSearchQuery}*")]`;
+  const query = `*[_type == "product" && (name match "${searchQuery.join('')}*" || category match "${searchQuery.join('')}*" || price == ${searchQuery.join('')} || description match "${searchQuery.join('')}*")]`;
 
 
 
