@@ -36,7 +36,8 @@ const SearchPage = ({ products }) => {
 
 export const getServerSideProps = async (context) => {
   const searchQuery = context.query.q || "";
-  const query = `*[_type == "product" && (name match "${searchQuery.join('')}*" || category match "${searchQuery.join('')}*" || price == ${searchQuery.join('')} || description match "${searchQuery.join('')}*")]`;
+  const searchWords = searchQuery.split(" ");
+  const query = `*[_type == "product" && (name match "${searchWords.join('')}*" || category match "${searchWords.join('')}*" || price == ${searchWords.join('')} || description match "${searchWords.join('')}*")]`;
 
 
 
