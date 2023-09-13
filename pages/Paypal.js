@@ -39,7 +39,7 @@ const SinglePayment = () => {
           {
             amount: {
               currency: 'USD',
-              value: `${totalPrice}`
+              value: 10
             }
           },
           {
