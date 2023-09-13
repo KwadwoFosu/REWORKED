@@ -13,8 +13,10 @@ function PayPal({ amount, onSuccess,cartItems }) {
                 amount: {
                   value: amount,
                 },
-                items:'pants alesa'
+                items: JSON.stringify(cartItems)
+               
               },
+          
             ],
           });
         }}

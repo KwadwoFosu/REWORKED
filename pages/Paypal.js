@@ -12,12 +12,12 @@ function MyCheckoutPage() {
     console.log('Payment succeeded:', paymentDetails);
     // Add logic to save order data to your database manually
   };
-  const { totalPrice, cartItems} = useStateContext();
+  const { totalPrice,cartItems} = useStateContext();
 
   return (
     <div className=" w-1/2">
       {/* Other checkout components */}
-      <PayPal amount={totalPrice} onSuccess={handlePaymentSuccess} cartItems ={cartItems} />
+      <PayPal amount={2} onSuccess={handlePaymentSuccess} cartItems={cartItems} />
     </div>
   );
 }
