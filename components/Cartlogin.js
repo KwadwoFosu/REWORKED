@@ -52,6 +52,12 @@ const handleClose = () => {
       //validity of form
       setFormValid(event.target.form.checkValidity());
     };
+    const handlePaymentSuccess = (paymentDetails) => {
+      // Payment was successful, you can now manually create an order
+      // using the paymentDetails and save it to your database
+      console.log('Payment succeeded:', paymentDetails);
+      // Add logic to save order data to your database manually
+    };
     //
     
     
@@ -275,7 +281,12 @@ const PaystackHookExample = () => {
             </div>
         <div className='btn-container'>
          <div > 
-         <button onClick={handleClick} className='btn' >checkout </button>
+         <button onClick={handleClick} className='btn' >checkout with Paystack</button>
+
+         //////////////
+         // PAY PAL ////
+         ///////////////
+         <PayPal amount={totalPrice} onSuccess={handlePaymentSuccess} cartItems={cartItems} />
          
          { showForm && (
           <form className="text-black fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white shadow-md rounded-lg p-6">
