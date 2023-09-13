@@ -17,7 +17,7 @@ function MyCheckoutPage() {
   return (
     <div className=" w-1/2">
       {/* Other checkout components */}
-      <PayPal amount={2} onSuccess={handlePaymentSuccess} cartItems={cartItems} />
+      <PayPal amount={totalPrice} onSuccess={handlePaymentSuccess} cartItems={cartItems} />
     </div>
   );
 }
