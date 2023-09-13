@@ -13,7 +13,7 @@ function PayPal({ amount, onSuccess,cartItems }) {
                 amount: {
                   value: amount,
                 },
-                items: cartItems
+                //items: cartItems
                
               },
           
